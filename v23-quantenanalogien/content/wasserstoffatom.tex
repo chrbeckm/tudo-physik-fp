@@ -1,0 +1,131 @@
+\subsection{Wasserstoffatom}
+\subsubsection{Resonanzfrequenzen}
+Bei eingestelltem Winkel von $\SI{180}{\degree}$  gibt es zwischen $\SI{100}{\hertz}\:\&\:\SI{10}{\kilo\hertz}$
+die Resonanzfrequenzen in Tabelle \ref{tab:h-resonanz}.
+In der hochaufgelösten Computermessung sind andere Maxima zu erkennen,
+vergleiche Abbildung \ref{fig:h-resonanz}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/h-atom-resonanz.pdf}
+    \caption{Hochaufgelöstes Frequenzspektrum des Wasserstoffatoms bei $α=\SI{180}{\degree}$.}
+    \label{fig:h-resonanz}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Resonanzfrequenzen des Wasserstoffatommodells.}
+    \label{tab:h-resonanz}
+    \sisetup{table-format=4.1}
+    \begin{tabular}{S c| S S[table-format=1.0]}
+        \toprule
+        \multicolumn{2}{c|}{Oszilloskop} & \multicolumn{2}{c}{Computer} \\
+        {$f\:/\:\si{\hertz}$} & {$\incrementφ$} & {$f\:/\:\si{\hertz}$} & {Ordnung} \\
+        \midrule
+         322.2 & $3\mpi/2$ & 381.7 & 1 \\
+         504.9 & $\mpi/2$  & 2130  & 2 \\
+         731   & 0              & 9240  & 3 \\
+         1941  & $\mpi/2$  & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Druckamplituden}
+\label{sec:druckamplituden}
+Die ersten drei Kugelflächenfunktionen lauten, mit Gleichung \eqref{eqn:costheta} eingesetzt,
+\begin{align}
+  \cos(θ) &= \frac{1}{2}(\cos(α)-1) \\
+    Y_{00} &= \sqrt{\frac{1}{4\mpi}} \label{eqn:y00} \\
+    Y_{10} &= \sqrt{\frac{3}{4\mpi}} \cosθ  = \sqrt{\frac{3}{16\mpi}} (\cos(α)-1)  \label{eqn:y10}\\
+    Y_{20} &= \sqrt{\frac{5}{16\mpi}} \left(3\,(\cosθ)^2-1\right) \\
+    &= \sqrt{\frac{5}{16\mpi}} \left(\frac{3}{4}(\cos^2(α)-2\cos(α)+1)-1\right) \\
+    &= \sqrt{\frac{5}{256\mpi}} \left(3\cos^2(α)-6\cos(α)-1\right)  \label{eqn:y20} \\
+    Y_{30} &= \sqrt{\frac{7}{16\mpi}}\left(5\cos^3(θ)-3\cos(θ)\right) \\
+    &= \sqrt{\frac{7}{16\mpi}}\sin^2\!\left(\frac{α}{2}\right)\left[3-5\sin^4\!\left(\frac{α}{2}\right)\right]\:.
+    \label{eqn:y30} \\
+    Y_{40} &= \frac{1}{8}\sqrt{\frac{9}{4\mpi}}\left(35\cos^4(θ)-30\cos^2(θ)+3\right)
+    \label{eqn:y40}
+  \end{align}
+  In der Abbildung \ref{fig:h-winkel} sind die Messwerte aus Tabelle \ref{tab:h-winkel}
+  zusammen mit der entsprechenden Kugelflächenfunktion in einem Polarplot aufgetragen.
+
+  \newgeometry{bottom=20mm, top=0mm}
+  \begin{figure}
+      \centering
+      \caption{Polarplots der Druckamplitudenmessung bei drei verschiedenen Resonanzfrequenzen.
+      Aufgetragen ist die skalierte Intensität gegen den Winkel $α$.}
+    \label{fig:h-winkel}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{build/h-381.pdf}
+        \caption{$f_1 = \SI{381.7}{\hertz}$, Kugelflächenfunktion: \eqref{eqn:y00}}
+        \label{fig:h-381}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{build/h-2130.pdf}
+        \caption{$f_2 = \SI{2130}{\hertz}$, Kugelflächenfunktion: \eqref{eqn:y10}}
+        \label{fig:h-2130}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{build/h-9240.pdf}
+        \caption{$f_3 = \SI{9240}{\hertz}$, Kugelflächenfunktionen: \eqref{eqn:y20} \& \eqref{eqn:y30} \& \eqref{eqn:y40}}
+        \label{fig:h-9240}
+    \end{subfigure}
+\end{figure}
+\newgeometry{bottom=50mm, top=50mm}
+\begin{table}
+    \centering
+    \caption{Intensitäten bei drei verschiedenen Resonanzfrequenzen.}
+    \label{tab:h-winkel}
+    \pgfplotstabletypeset[
+        dec sep align,
+        col sep=comma,
+        use comma,
+        every head row/.style={before row=\toprule, after row=\midrule},
+        every last row/.style={after row=\bottomrule},
+        columns/0/.style ={column name=$α\:/\:\si{\degree}$},
+        columns/1/.style ={column name=$\SI{381.7}{\hertz}$},
+        columns/2/.style ={column name=$\SI{2130}{\hertz}$},
+        columns/3/.style ={column name=$\SI{9240}{\hertz}$},
+    ]{auswertung/h-winkel.csv}
+\end{table}
+\FloatBarrier
+
+\subsubsection{Zwischenringe}
+Aus den Messdaten für die verscheidenen Dicken der Zwischenringe in Abbildung
+\ref{fig:zwischenringe}
+kann keine Aufspaltung der Peaks gewonnen werden.
+Betrachtet man den vergrößerten Bereich in Abbildung \ref{fig:zwischenringe-zoom}
+wird auch hier keine Aufspaltung der Peaks ersichtlich.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/zwischenringe.pdf}
+    \caption{Messdaten für verschiedene Zwischenringe, bei $α=\SI{180}{\degree}$.}
+    \label{fig:zwischenringe}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/zwischenringe-zoom.pdf}
+    \caption{Vergrößerter Bereich der Messdaten für verschiedene Zwischenringe, bei $α=\SI{180}{\degree}$.}
+    \label{fig:zwischenringe-zoom}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{$\SI{9}{\milli\meter}$-Zwischenring}
+In Abbildung \ref{fig:9mm} ist die Winkelabhängigkeit der Druckamplitude bei der
+Resonanzfrequenz $f_2 = \SI{2130}{\hertz}$ aufgetragen.
+Vergleicht man die Form mit denen aus Kapitel \ref{sec:druckamplituden} erkennt man keine Übereinstimmung mit einer der Kugelflächenfunktionen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/h-9mm.pdf}
+    \caption{Druckamplitude bei $f_2 = \SI{2130}{\hertz}$.}
+    \label{fig:9mm}
+\end{figure}
+\FloatBarrier

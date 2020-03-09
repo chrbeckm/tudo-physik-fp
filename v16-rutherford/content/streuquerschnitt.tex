@@ -1,0 +1,79 @@
+\subsection{Streuquerschnitt}
+In Tabelle~\ref{tab:werte-2micrometer} stehen die Messwerte und die berechneten Werte für die
+Streuquerschnitte für die $\SI{2}{\micro\meter}$-Folie und in Tabelle~\ref{tab:werte-4micrometer}
+für $\SI{4}{\micro\meter}$.
+\\
+Die Streuquerschnitte \cite{streu} wurden gemäß
+\begin{equation}
+    \frac{\symup{dσ}}{\symup{dΩ}} =
+    \frac{\symup{\Delta}\dot{\symup{N}}}{\dot{\symup{N}}\symup{n\Delta x \Delta \Omega}}
+\end{equation}
+berechnet, wobei $\Delta\dot{\symup{N}}$ die Counts pro Zeitintervall und Raumwinkel $\Delta \Omega$ sind, $\dot{\symup{N}}$ ist die Nullmessung in $\frac{\text{Counts}}{seconds}$, n ist die Anzahl der Targetkerne in der Folie und $\Delta x$ ist die Foliendicke.
+\begin{table}
+  \centering
+  \caption{Messwerte und Streuquerschnitte der $\SI{2}{\micro\meter}$-Folie.}
+  \label{tab:werte-2micrometer}
+  \begin{tabular}{S[table-format=2.1] S[table-format=2.2]@{${}\pm{}$}S[table-format=1.2] S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2] S[table-format=7.1]}
+    \toprule
+    {$φ\;/\;\si{\degree}$} &
+    \multicolumn{2}{c}{$\text{Counts}\;/\;\si{\per\second}$} &
+    \multicolumn{2}{c}{$\frac{\symup{d}σ}{\symup{d}Ω}\;/\;\SI{e-24}{\per\meter\squared}$}
+    & {$\frac{\symup{d}σ}{\symup{d}Ω}_\text{theo}\;/\;\SI{e-25}{\per\meter\squared}$} \\
+    \midrule
+    -0.6 &  8.6  & 0.3  & 5.0  & 0.2  & 1430438.8 \\
+     0.0 &  9.2  & 0.3  & 5.4  & 0.2  & 9999999.9 \\
+     0.5 &  9.7  & 0.3  & 5.7  & 0.2  & 2966141.4 \\
+     1.0 & 10.3  & 0.3  & 6.0  & 0.2  &  185390.9 \\
+     1.5 & 10.8  & 0.3  & 6.3  & 0.2  &   36622.7 \\
+     2.0 & 10.0  & 0.3  & 5.8  & 0.2  &   11588.7 \\
+     2.5 & 10.4  & 0.3  & 6.0  & 0.2  &    4747.3 \\
+     3.0 & 10.1  & 0.3  & 5.9  & 0.2  &    2289.7 \\
+     3.5 &  9.6  & 0.3  & 5.6  & 0.2  &    1236.1 \\
+     4.0 & 12.6  & 0.4  & 7.3  & 0.3  &    724.7  \\
+     5.0 &  7.5  & 0.2  & 4.4  & 0.2  &    297.0  \\
+     6.0 &  6.9  & 0.2  & 4.0  & 0.2  &    143.3  \\
+     7.1 &  4.5  & 0.2  & 2.6  & 0.1  &     73.1  \\
+     8.0 &  3.3  & 0.1  & 1.92 & 0.08 &     45.4  \\
+     9.1 &  2.05 & 0.07 & 1.19 & 0.05 &     27.1  \\
+    10.0 &  1.49 & 0.05 & 0.87 & 0.04 &     18.6  \\
+    12.0 &  0.77 & 0.03 & 0.45 & 0.02 &      9.0  \\
+    14.2 &  0.26 & 0.02 & 0.15 & 0.01 &      4.6  \\
+    17.1 & 11.0  & 0.1  & 6.4  & 0.2  &      2.2  \\
+    19.9 &  0.36 & 0.02 & 0.21 & 0.01 &      1.2  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messwerte und Streuquerschnitte der $\SI{4}{\micro\meter}$-Folie.}
+  \label{tab:werte-4micrometer}
+  \begin{tabular}{S[table-format=2.1] S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2] S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2] S[table-format=6.1]}
+    \toprule
+    {$φ\;/\;\si{\degree}$} &
+    \multicolumn{2}{c}{$\text{Counts}\;/\;\si{\per\second}$} &
+    \multicolumn{2}{c}{$\frac{\symup{d}σ}{\symup{d}Ω}\;/\;\SI{e-24}{\per\meter\squared}$}
+    & {$\frac{\symup{d}σ}{\symup{d}Ω}_\text{theo}\;/\;\SI{e-24}{\per\meter\squared}$} \\
+    \midrule
+    -0.6 & 5.8  & 0.2  & 1.68 & 0.07 & 143043.9 \\
+     0.0 & 5.3  & 0.1  & 1.54 & 0.06 & 999999.9 \\
+     0.5 & 5.5  & 0.2  & 1.60 & 0.06 & 296614.1 \\
+     0.9 & 5.5  & 0.2  & 1.59 & 0.06 &  28256.2 \\
+     1.6 & 5.7  & 0.2  & 1.67 & 0.06 &   2829.1 \\
+     2.0 & 5.8  & 0.2  & 1.68 & 0.06 &   1158.9 \\
+     2.4 & 6.0  & 0.2  & 1.73 & 0.06 &    558.9 \\
+     2.9 & 5.7  & 0.2  & 1.65 & 0.06 &    262.2 \\
+     3.5 & 5.7  & 0.2  & 1.67 & 0.06 &    123.6 \\
+     4.0 & 5.5  & 0.2  & 1.59 & 0.06 &     72.5 \\
+     5.0 & 5.0  & 0.2  & 1.46 & 0.06 &     29.7 \\
+    10.1 & 2.51 & 0.09 & 0.73 & 0.03 &      1.8 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/streuquerschnitt.pdf}
+  \caption{Rutherford Wirkungsquerschnitt.}
+  \label{fig:ruthquer}
+\end{figure}

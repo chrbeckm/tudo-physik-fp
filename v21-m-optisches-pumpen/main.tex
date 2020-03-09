@@ -1,0 +1,25 @@
+\input{../header.tex}
+\usepackage{pgfplotstable}
+\subject{V21}
+\title{Optisches Pumpen}
+\date{%
+  Durchführung: 28.10.2019
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\input{content/theorie.tex}
+\input{content/durchfuehrung.tex}
+\input{content/auswertung.tex}
+\newpage
+\input{content/diskussion.tex}
+%\newpage
+\printbibliography{}
+
+\includepdf[pages=-, angle=180]{data/messwerte.PDF}
+\end{document}

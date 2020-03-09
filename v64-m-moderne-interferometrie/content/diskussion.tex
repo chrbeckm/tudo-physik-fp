@@ -1,0 +1,29 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+%Die Lage des Kontrastmaximums passt mit der Vorhersage sehr gut überein.
+%\rot{Theorieabschnitt}
+
+Die Bestimmung des kompletten Drehwinkels $θ$ in der dritten Messung
+ist schwierig, da die Skala sehr klein ist, aber nicht fein.
+Deswegen haben wir in die Brechungsindices des Glases für beide Winkel bestimmt.
+Je nach Zusammensetzung des Glases liegt der Brechungsindex
+zwischen $\num{1.571}$ und $\num{1.68}$ \cite[197]{hecht}.
+Dies lässt darauf schließen, dass der tatsächliche Winkel näher an
+$\SI{9}{\degree}$ als an $\SI{10}{\degree}$ liegt.
+
+Der Literaturwert des Brechungsindices von Luft ist \cite{brechluft}
+\begin{align}
+  n_{\text{Luft,Lit}} &= \num{1.000276145(23)}\,.
+  \intertext{Damit weicht er stark von dem uns bestimmten Wert}
+  \input{build/p-m4-normbrech.tex}
+\end{align}
+ab. Das kann an dem für die zum Versuchszeitpunkt geltenden Verhältnisse
+verwendeten Brechungsindex $n_A$ liegen, oder an der Näherung des
+\textsc{Lorenz-Lorentzschen}-Gesetzes.
+Eine weitere Fehlerquelle ist, dass im Fit nicht $B = 1$ gesetzt wurde,
+wird dies getan, verschlechtert sich das Ergebnis auf $n_0 \approx \num{1.0000003529(15)}$.
+
+In der Messung~4 sollte eigentlich eine Haube aus Plexiglas über das System
+gestellt werden, um äußere Einflüße abzuschirmen.
+Wenn die Haube jedoch auf die Grundplatte gesetzt wurde, hat sich das System
+so dejustiert, dass keine Messung möglich war.

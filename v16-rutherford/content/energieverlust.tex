@@ -1,0 +1,103 @@
+\subsection{Energieverlust}
+In Abbildung \ref{fig:energieverlust} bzw. \ref{fig:energieverlust_lin} sind
+die Daten der Energieverlustmessung
+aufgetragen. Es wurde zwischen der maximalen und minimalen Amplitude
+nach
+\begin{align}
+	\overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i
+	\label{eqn:mittelwert}
+  \shortintertext{der Mittelwert und nach}
+  \increment\overline{x} &= \sqrt{
+	\frac{1}{N(N-1)}\sum_{k=0}^{N}
+	\left( x_k - \overline{x} \right)^2}
+	\label{eqn:mittelwertfehler}
+	\intertext{der Fehler des Mittelwerts bestimmt.
+		Alle Daten stehen in den Tabellen
+		\ref{tab:energieverlust-ohne-folie} \&
+		\ref{tab:energieverlust-mit-folie}.
+		Die Ausgleichsgeraden der Form}
+	U &= m\cdot p+b
+	\intertext{führen auf die Parameter}
+	\input{build/energieverlust-ohne-folie-m.tex} \\
+	\input{build/energieverlust-ohne-folie-b.tex}
+	\intertext{für die Messung ohne Folie. Mit der $\SI{2}{\micro\meter}$ Goldfolie folgen}
+	\input{build/energieverlust-mit-folie-m.tex} \\
+	\input{build/energieverlust-mit-folie-b.tex}\,.
+	\intertext{Die Energiedifferenz berechnet sich gemäß}
+	\increment E &= \symup{E}_{\alpha}\cdot\left(1\,-\,\frac{b_{mit}}{b_{ohne}}\right)\,.
+	\shortintertext{Damit folgt}
+	\input{build/energieverlust-delta-e.tex}\:. \\
+	E_α &= \SI{5485.56}{\kilo\electronvolt}
+	\intertext{Die Geschwindigkeit der \alphat~folgt mit umstellen der kinetischen Energie}
+	E_\text{kin} &= \frac{mv^2}{2}
+	\shortintertext{zu}
+	v_α^2 &= \frac{E_\text{ohne} + E_\text{mit}}{m_α}
+	\shortintertext{mit \cite{consts}}
+	m_α &= \SI{3727.379378}{\mega\electronvolt} \\
+	v_α &= \sqrt{
+		\frac{E_α}{m_α}
+		\left( 1\,+\,\frac{b_\text{mit}}{b_\text{ohne}}\right)} \\
+	\input{build/energieverlust-v.tex} \\
+	\input{build/energieverlust-c.tex} \,.
+	\intertext{Mit der nach $\laplace x$ umgestellten
+		\glname{Bethe-Bloch}{-Formel}
+		\eqref{eqn:bethe-bloch} ergibt sich}
+	\laplace x &= \frac{ \laplace E \cdot m_\text{e} \cdot v_α^2 \cdot 4 \mpi \cdot ε_0^2 \cdot A \cdot u }
+	{ z^2 \cdot \symup{e}^4 \cdot Z \cdot ρ \cdot \ln \left(\frac{2 m_\text{e} v_α^2}{I}\right)} \\
+	\input{build/energieverlust-deltax.tex}\,.
+	\intertext{Der Energieverlust ist}
+	\frac{\ud E}{\ud x} &= \frac{\laplace E}{\laplace x}
+		= \SI{1.12(29)e12}{\electronvolt\per\meter}\,.
+\end{align}
+
+\begin{align*}
+	\intertext{Die Konstanten sind\cite{consts}\cite{Eohne}:}
+	\input{build/energieverlust-konstanten.tex}\:.
+\end{align*}
+
+Analog wurde auch die Reichweite von $α$-Strahlung in Luft berechnet,
+wobei anstatt mit Luft mit Stickstoff gerechnet wurde, da diese zu einem
+großen Prozentsatz daraus besteht.
+Die Reichweite in Luft berechnet sich zu
+\begin{align}
+	\laplace x &= \SI{1.6(3)}{\centi\metre}\,,
+	\intertext{der Energieverlust zu}
+	\frac{\ud E}{\ud x} &= \frac{\laplace E}{\laplace x} = \SI{2.4(6)e8}{\electronvolt\per\meter}\,.
+\end{align}
+Die neuen Parameter dafür sind:\\
+\begin{align*}
+A &= \num{14}\\
+z &= \num{2}\\
+Z &= \num{7}\\
+v_{\alpha} &= \SI{1.626e7}{\metre\per\second}\\
+\rho &= \SI{1.2041}{\kilo\gram\per\metre\tothe{3}}\\
+I &= \SI{1.121e-17}{\joule}\\
+\end{align*}
+Mit einer anderen Variante der \glname{Bethe-Bloch}{-Gleichung}
+\begin{align}
+	\frac{\laplace E}{\laplace x} &= \frac{4\mpi \symup{e}^2z^2N^2}{m_0v^2(4\mpiε_0)^2}\ln\left(\frac{2m_0v^2}{I}\right) \\
+	N^2 &= \frac{m_0v^2(4\mpiε_0)^2}{4\mpi \symup{e}^2z^2\ln\left(\frac{2m_0v^2}{I}\right)}\frac{\laplace E}{\laplace x} \\
+	N^2 &= \frac{ \SI{6.6e-27}{\kilo\gram}\cdot v_α^2 (4\mpiε_0)^2 }
+			{4\mpi (\SI{1.602e-19}{\coulomb})^2\cdot 4\cdot
+			\ln\left( \frac{2\cdot\SI{6.6e-27}{\kilo\gram} v_α^2 } {\SI{1.21e-17}{\joule}} \right)} \frac{\SI{5.485}{\mega\electronvolt}}{\SI{10.1}{\centi\meter}} \\
+	N &= \SI{9.99e-5}{\per\cubic\meter} \\
+	\intertext{folgt der Druck}
+	p &= Nk_\text{b}T = \SI{4.3e-25}{\pascal}\,,
+\end{align}
+bei dem kein Teilchen mehr am Detektor gemessen wird, bei einer Temperatur $T=\SI{310}{\kelvin}$.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{build/energieverlust.pdf}
+    \caption{Messwerte der Energieverlustmessung und die zugehörigen Ausgleichsgeraden, logarithmisch.}
+    \label{fig:energieverlust}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{build/energieverlust_linear.pdf}
+    \caption{Messwerte der Energieverlustmessung und die zugehörigen Ausgleichsgeraden.}
+    \label{fig:energieverlust_lin}
+\end{figure}
+
+
+\input{content/energieverlust-tabellen.tex}

@@ -1,0 +1,128 @@
+\subsection{1-dimensionaler Festkörper}
+\label{sec:1dimFK}
+\subsubsection{1-dimensionale Kette mit $\SI{13}{\milli\meter}$ Blende}
+Aus den Frequenzspektren für die verschieden langen Zylinderketten mit
+$\SI{13}{\milli\meter}$ Blenden, werden die Positionen der Maxima in Abhängigkeit der Zylinderanzahl bestimmt. Die Werte sind in Tabelle \ref{tab:13mm} aufgelistet.
+In der unten stehen Grafik \ref{fig:13mmblende} werden beispielhaft die Frequenzspektren
+für 1, 4 und 12 Zylinder aufgetragen.
+Die Messwerte sind leicht zueinander in der Amplitude (y-Koordinate) verschoben,
+da sonst nicht erischtlich ist wo die einzelnen Werte liegen.
+
+\begin{table}
+	\centering
+	\caption{Abhängigkeit der Resonanzen von der Zylinderanzahl bei $\SI{13}{\milli\meter}$ Blenden.}
+	\label{tab:13mm}
+	\sisetup{table-format=4.0}
+	\begin{tabular}{c SSS SSS SSS SSS}
+		\toprule
+		{\#Zylinder} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+		\midrule
+		{$f_\text{res}\:/\:\si{\hertz}$} & 2140 & 2150 & 2140 & 2140 & 2140 & 2140 & 2140 & 2150 & 2140 & 2150 & 2150 & 2130 \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+%Da die Unterschiede zwischen den Maxima zum einen sehr klein sind und zum
+%zweiten sehr statistisch aussehen, kann über die Abhängigkeit der
+%Resonanzpositionen zur Resonatorlänge (Anzahl an Zylindern) keine Aussage gemacht werden. \\
+
+\begin{figure}
+	\centering
+		\includegraphics[width=0.8\textwidth]{build/zylinder1_4_12-13mm-Blende.pdf}
+	\caption{Frequenzspektrum für die Zylinderkette mit 13mm Blende.}
+	\label{fig:13mmblende}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{1-dimensionale Kette mit $\SI{10}{\milli\meter}$ Blende}
+Analog zur Messung mit einer $\SI{13}{\milli\meter}$ Blende, ist auch bei
+der $\SI{10}{\milli\meter}$ Blende keine Korrelation zwischen den
+Positionen der Resonanzen und der Zylinderanzahl erkennbar.
+In Tabelle \ref{tab:10mm} sind die Messwerte für die Positionen der Maxima
+aufgetragen.
+\begin{table}
+	\centering
+	\caption{Abhängigkeit der Resonanzen von der Zylinderanzahl bei $\SI{10}{\milli\meter}$ Blenden.}
+	\label{tab:10mm}
+	\sisetup{table-format=4.0}
+	\begin{tabular}{c SSS SSS SSS SSS}
+		\toprule
+		{\#Zylinder} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+		\midrule
+		{$f_\text{res}\:/\:\si{\hertz}$} & 2150 & 2140 & 2140 & 2140 & 2150 & 2150 & 2140 & 2150 & 2140 & 2140 & 2150 & 2150 \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{build/zylinder1_4_12-10mm-Blende.pdf}
+	\caption{Frequenzspektrum für die Zylinderkette mit 10mm Blende.}
+\end{figure}
+
+\newpage
+
+% Das ist die erste Messaufgabe.
+%
+%\subsubsection{1-dimensionale Kette ohne Blende}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{build/zylinder1_4_12-ohne-Blende.pdf}
+%	\caption{Frequenzspektrum für die Zylinderkette ohne Blende.}
+%	\label{fig:ketteOhne}
+%\end{figure}
+%
+%In Abbildung \ref{fig:ketteOhne} sind exemplarisch die Frequenzspektren für 1, 4 und 12
+%Zylinder, ohne Blenden, aufgetragen. Es ist klar zu erkennen, dass bei einem Zylinder
+%3 Resonanzen auftreten. Demnach sind in dem Spektrum für 4 Zylinder 12 Resonanzen zu erkennen und im Spektrum mit 12 Zylindern 36 Resonanzen.
+%Dies ist konsistent mit der Theorie nach \eqref{eqn:resonanzfrequenz}.
+%
+%\newpage
+
+\subsubsection{Zylinderaustausch}
+In Abbildung \ref{fig:austausch} sind die Spektren mit den verschiedenen
+Zylindervertauschungen aufgetragen.
+In Abbildung \ref{fig:peaks} ist die Umgebungen um die Aufspaltung vergrössert.
+Die Positionen der globalen Maxima der Kurven sind in Tabelle \ref{tab:einschubMaxima} aufgetragen.
+Die Schrittweite der Messungen beträgt $\SI{10}{\hertz}$.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{build/kette_2.pdf}
+	\caption{Austausch verschiedener Zylinder innerhalb der Kette.}
+	\label{fig:austausch}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{build/peaks_kette.pdf}
+	\caption{Auspaltung der Peaks bei den verschiedenen Zylindern.}
+	\label{fig:peaks}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Austausch eines Zylinders gegen unterschiedlich lange andere Zylinder.}
+	\label{tab:einschubMaxima}
+	\begin{tabular}{c S[table-format=4.0]}
+		\toprule
+		{Zylindereinschub} & {relative Position der Maxima} \\
+		\midrule
+		2 \times \SI{12.5}{\milli\meter} \text{ohne Blende} & 9240 \\
+		2 \times \SI{12.5}{\milli\meter} \text{mit Blende}  & 9220 \\
+		\SI{75}{\milli\meter} & 9190 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\newpage
+\subsubsection{Alternierende Blenden}
+In Abbildung \ref{fig:alt} sind die beiden Varianten an Blendenkonstellationen zusehen.
+Für die schwarze Kurve sind die äußersten Blenden die mit $\SI{13}{\milli\meter}$,
+für die rote genau andersrum.
+% Wie man sehen kann, liegen beide Kurven bis auf einige statistische Schwankungen, exakt übereinander.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{build/abwechselnde-Blende.pdf}
+	\caption{Frequenzspektrum für alternierende Blenden innerhalb der Kette.}
+	\label{fig:alt}
+\end{figure}

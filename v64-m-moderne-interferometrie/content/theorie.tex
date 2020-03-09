@@ -1,0 +1,192 @@
+\section{Zielsetzung}
+
+In diesem Versuch sollen die grundlegenden
+Eigenschaften eines Sagnac-Interferometers untersucht,
+sowie die Brechungsindizes von Gasen und Festkörpern
+bestimmt werden. Das Sagnac-Interferometer bietet hier
+gegenüber anderen Interferometern den Vorteil, dass
+es stabiler gegenüber äußeren Einflüssen ist.
+Dies liegt daran, dass die Strahlen im Interferometer,
+nicht wie bei anderen Interferometern, räumlich getrennt laufen,
+sondern nahezu die gleiche Wegstrecke zurücklegen.
+
+\section{Theoretische Grundlagen}
+\label{sec:theorie}
+
+%\begin{itemize}
+%    \item polarisation
+%    \item Licht: wellenbeschreibung, überlagerung, interferenz
+%    \item brechungsindex von gasen und festkörpern
+%    \item kontrast
+%\end{itemize}
+
+\subsection{Allgemeine Eigenschaften von Licht}
+Licht wird in diesem Versuch als eine elektromagetische Welle angenommen.
+Zur Beschreibung genügt die Betrachtung des elektrischen Feldes.
+Eine Welle kann definiert werden als
+\begin{equation}
+  \bfE = \bfE_{0} \exp\!\left[\I \l(\symbf{k} \symbf{r} - ω t\r)\right]\,.
+\end{equation}
+Hierbei ist $\bfE_{0}$ die Polarisation des Feldes.
+Eine Welle kann in zwei Teilwellen zerlegt werden, beide
+Schwingungsrichtungen stehen orthogonal auf der Ausbreitungsrichtung.
+Die Polarisationsrichtung von Wellen kann mit Polarisationsfiltern
+verändert werden.
+Solche Filter absorbieren den Teil der Welle, der um $\SI{90}{\degree}$
+gegenüber der Filterachse gedreht ist. Es wird der transmittierte
+Anteil auf die Filterachse projiziert.
+
+In diesem Versuch werden PBSCs\footnote{polarizing beam splitter Cube}
+verwendet. Diese teilen den eintreffenden Strahl in zwei Teilstrahlen auf,
+welche orthogonal zueinander den Strahlteiler verlassen.
+Außerdem haben die Teilstrahlen eine um $\SI{90}{\degree}$ zueinander
+gedrehte Polarisationsrichtung.
+
+\subsection{Polarisation}
+\subsubsection{Lineare Polarisation}
+Bei linearer Polarisation ist die Orientierung des Feldes konstant,
+jedoch ändert die Amplitude Vorzeichen und Betrag.
+Für die weitere Beschreibung nehmen wir die beiden Wellen an
+\begin{align}
+  \bfE_x\l(z, t\r) &= \hat{\symbf{I}}\bfE_{0x} \cos\!\left(kz- ωt\right) \\
+  \bfE_y\l(z, t\r) &= \hat{\symbf{J}}\bfE_{0y} \cos\!\left(kz - ωt + \Del{Φ}\right)\,.
+\end{align}
+
+Diese beiden Wellen breiten sich in die gleiche Richtung aus, schwingen aber
+in unterschiedlichen Ebenen. Die relative Phase zwischen den Wellen wird mit
+$\Del{Φ}$ bezeichnet.
+Für ein allgemeines $\Del{Φ}$ ist die überlagerte Welle die vektorielle
+Summe der beiden Einzelwellen.
+
+\begin{equation}
+  \bfE\l(z, t\r) = \bfE_x\l(z, t\r) + \bfE_y\l(z, t\r)
+  \label{eqn:ueberlagerung1}
+\end{equation}
+
+Wenn $\Del{Φ} = 0$ oder ein ganzzahliges Vielfaches von $\pm 2 \mpi$ ist,
+vereinfacht sich Gleichung \eqref{eqn:ueberlagerung1} zu
+
+\begin{equation}
+  \bfE\l(z, t\r) = \left(\hat{\symbf{I}}\bfE_{0x} + \hat{\symbf{J}}\bfE_{0y} \right)
+  \cos\l(kz - ωt\r)
+  \label{eqnb:ueberlagerung2}
+\end{equation}
+
+Die resultierende Welle ist wieder linear polarisiert und hat eine feste
+Amplitude $\left(\hat{\symbf{I}}\bfE_{0x} + \hat{\symbf{J}}\bfE_{0y} \right)$.
+
+\subsubsection{Zirkulare Polarisation}
+Für den Fall, dass eine Welle der anderen um $\Del{Φ} = -\frac{\mpi}{2} + 2 \mpi k$
+vorausgeht, mit $k = 0, \pm 1, \pm 2, ...$, und die Amplituden identisch sind
+$\symup{E}_{0x} = \symup{E}_{0y} = \symup{E}_{0}$, ergibt sich
+für die resultierende Welle
+\begin{equation}
+  \bfE\l(z, t\r) = \symup{E}_0 \left[\cos\l(kz - ωt\r) +
+  \sin\l(kz - ωt\r)\right]\,.
+\end{equation}
+
+Die Polarisation von $\bfE$ ändert mit der Zeit seine Richtung,
+hier im Uhrzeigersinn. Diese Art von Welle wird rechtszirkular polarisierte
+genannt.
+
+\subsection{Interferenz}
+Durch die überlagerung von zwei Wellen kann es zu Interferenzeffekten kommen.
+Nimmt man zwei Wellen $\bfE_{1}$ und $\bfE_{2}$ mit
+\begin{align}
+  \bfE_1 &= \bfE_{01} \exp\!\left[\I \l(\symbf{k}_1 \symbf{r} - ωt\r) \right] \\
+  \bfE_2 &= \bfE_{02} \exp\!\left[\I \l(\symbf{k}_2 \symbf{r} - ωt + \Del{Φ}\r) \right]
+\end{align}
+an, ergibt sich die Observable, die Intensität, zu
+\begin{align}
+  \symup{I} &\propto \left|\bfE_{1} + \bfE_{1}\right|^2 \\
+            &= \bfE_{01}^2 + \bfE_{02}^2 + 2\bfE_{01}
+            \bfE_{02}\cos\l(δ\r) \cos\l(\Del{Φ}\r)\,.
+  \label{eqn:interferenz}
+\end{align}
+
+Hierbei ist $δ$ der Polarisationswinkel und $\Del{Φ}$ der
+Phasenunterschied zwischen $\bfE_1$ und $\bfE_2$.
+Der letzte Term in Gleichung \eqref{eqn:interferenz} wird Interferenzterm
+genannt.
+
+Die Art der Interferenz ist demnach abhängig vom Phasenunterschied.
+Es gilt
+\begin{align}
+  \Del{Φ} &= 0, 2\mpi, 4\mpi, \dotsc & &\text{kontstruktive Interferenz} \\
+  \Del{Φ} &= \mpi, 3\mpi, 5\mpi, \dotsc & &\text{destruktive Interferenz}\,.
+\end{align}
+
+Außerdem ist zu beachten, dass senkrecht zueinander polarisierte
+Wellen nicht interferenzfähig sind, was an dem Faktor
+$\cos\!\left(\sfrac{\mpi}{2}\right)$ liegt.
+
+\subsection{Brechungsindex bei Gasen}
+Propagiert ein Lichtstrahl von Medium A durch eine Gaszelle der Länge $L$ mit
+Medium B, so führt das zu einer Phasendifferenz $\Del{Φ}$ relativ gesehen
+zu einem Lichtstrahl, der sich nur durch Medium A bewegt. Erzeugt wird diese
+Phasendifferenz durch die Änderung der Phasengeschwindigkeit im Medium B
+$v_{\text{ph}} = \frac{\symup{c}}{n} = \frac{ω}{k}$,
+wobei c die Vakuumlichtgeschwindigkeit darstellt.
+Eine Änderung der Phasengeschwindigkeit verursacht eine Änderung der
+Wellenzahl $k$ und somit eine Phasenverschiebung gemäß
+
+\begin{align}
+  \Del{Φ} &= kL \\
+             &= \frac{2\mpi}{λ_{\text{vac}}}\left(n_{B} - n_{A}\right) L\,.
+\end{align}
+
+Die Brechungsindizes der Medien A und B sind als $n_{A,B}$ gekennzeichnet und
+$λ_{\text{vac}}$ ist die Vakuumwellenlänge.
+Im allgemeinen ist der Brechungsindex druckabhängig. Diese Abhängigkeit
+wird durch das Lorentz-Lorenz'sche Gesetz definiert gemäß
+\begin{equation}
+  n \approx \sqrt{1 + \frac{3Ap}{RT}}\,.
+  \label{eqn:lorlor}
+\end{equation}
+
+Der molare Brechungsindex ist hier $A$, die Gaskonstante $R$ und die Temperatur $T$.
+In Interferometern können mit Hilfe von Gaszellen durch die
+Druckabhängigkeit Interferenzphänomene analysiert werden.
+Zählt man bei einer gegebenen Druckdifferenz die Interferenzmaxima kann der
+Brechungsindex bestimmt werden.
+
+\begin{equation}
+  M = \frac{\Del{Φ}}{2\mpi} = \frac{n_{B} - n_{A}}{λ_{\text{vac}}} L
+\end{equation}
+
+\subsection{Brechungsindex bei Festkörpern}
+Bei der Brechung an Festkörpern ist die Druckabhängigkeit verschwindend
+gering und wird daher nicht weiter betrachtet. Ein Lichtstrahl wird während
+der Propagation gemäß des Snellius'schen Brechungsgesetzes gebrochen. Der
+dadurch entstehende Gangunterschied resultiert in einer Phasendifferenz
+über den Zusammenhang
+\begin{align}
+  \Del{Φ} &= \frac{2\mpi T}{\lambda_{vac}}\left( \frac{n -
+  \cos\l(θ - θ'\r)}{\cos\l(θ'\r)} - n + 1\right)\,. \\
+  \intertext{Die Annahme einer Kleinwinkelnäherung liefert dann}
+  \Del{Φ} &= \frac{2\mpi T}{\lambda_{\text{\text{vac}}}}\left( \frac{n - 1}{2n} θ^2 + \symcal{0}(θ^4)\right)\,.
+  \label{eqn:deltheta}
+\end{align}
+
+Daraus lässt sich nun die Anzahl $M$ an Interferenzmaxima bestimmen
+\begin{align}
+  M &= \frac{\Del{Φ}}{2\mpi} \approx \frac{T}{λ_{\text{vac}}}
+  \frac{n - 1}{2n}\theta^{2}\,.
+  \label{eqn:intmaxFestk}
+  \intertext{Die Taylorentwicklung liefert im linearen Term}
+  M &\approx \frac{T}{λ_{\text{vac}}}\frac{n - 1}{n}\l(2 θ_0 \Del{θ}\r)\,.
+  \intertext{Formt man nach dem Brechungsindex $n$ um, folgt}
+  n &\approx \left[1 - \frac{M λ_{\text{vac}}}{2 T θ_0 \Del{θ}}\right]^{\!-1}
+  \label{eqn:brechFestk}
+\end{align}
+
+
+\subsection{Kontrast}
+Der Kontrast eines Interferometers beschreibt die Güte des Auflösungsvermögens
+\begin{equation}
+  K = \frac{I_{\text{max}} - I_{\text{min}}}{I_{\text{max}} + I_{\text{min}}}
+    = \abs{\sin\l(2 θ\r)}\,.
+  \label{eqn:kontrast}
+\end{equation}
+
+Dabei sind $I_{\text{max}}$ und $I_{\text{min}}$ die maximale und minimale Intensität.

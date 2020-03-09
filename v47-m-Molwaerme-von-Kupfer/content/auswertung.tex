@@ -1,0 +1,111 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Temperaturverlauf}
+In Abbildung \ref{fig:temperatur} ist der Temperaturverlauf während der
+Messung zu sehen, die Werte von Probe und Gehäuse liegen nahe zusammen,
+wie oben gefordert.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-temperatur.pdf}
+  \caption{Temperaturverlauf der von Gehäuse und Probe während der Messung.}
+  \label{fig:temperatur}
+\end{figure}
+
+\subsection{Wärmekapazitäten}
+Die Wärmekapazität $C_P$ wird mit Gleichung \eqref{eqn:cp1} bestimmt.
+Abgebildet sind die Werte in Abbildung \ref{fig:cp1}, die Werte stehen in Tabelle
+\ref{tab:cp1}.
+Die Einzelwerte sind
+\begin{align}
+  M &= \SI{63.546}{\gram\per\mol} &\text{\cite{kupfer-mol}}\\
+  m &= \SI{342}{\gram} &\text{\cite{anleitung}}\\
+  U_P &= \SI{17.64}{\volt}
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-cp.pdf}
+  \caption{Abhängigkeit der $C_P$-Werte von der Temperatur.}
+  \label{fig:cp1}
+\end{figure}
+
+Für die Berechung von $C_V$ nach Gleichung \eqref{eqn:cp-cv} werden die Werte
+\begin{align}
+  κ &= \SI{140}{\giga\pascal} &\text{\cite{kupfer-kappa}} \\
+  V_0 &= \frac{\text{molare Masse}}{\text{Dichte}} = \frac{63.546 \cdot N_A}{\SI{8.92}{\gram\per\cubic\centi\meter}}
+\end{align}
+verwendet. Für $α$ werden die Werte aus der Anleitung \cite{anleitung} an
+\begin{align}
+  α(T) &= a \cdot T^3 + b \cdot T^2 + c \cdot T + d
+  \intertext{gefittet, es ergeben sich mit \texttt{scipy}}
+  \input{build/p-alpha-a.tex} \\
+  \input{build/p-alpha-b.tex} \\
+  \input{build/p-alpha-c.tex} \\
+  \input{build/p-alpha-d.tex}\,.
+\end{align}
+Das Ergebnis ist in Abbildung \ref{fig:alphafit} zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-alphafit.pdf}
+  \caption{Fit an die gegebenen Werte des linearen Ausdehnungskoeffizientens für Kupfer.}
+  \label{fig:alphafit}
+\end{figure}
+
+Es folgen die $C_V$-Werte in Abbildung \ref{fig:cv1} und Tabelle \ref{tab:cv1}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-cv.pdf}
+  \caption{Abhängigkeit der $C_V$-Werte von der Temperatur.}
+  \label{fig:cv1}
+\end{figure}
+\FloatBarrier
+\subsection{Debye-Temperatur}
+In Tabelle \ref{tab:debye1} stehen die $C_V$ mit den, nach der in der Anleitung
+gegeben Tabelle, entsprechenden $\sfrac{θ_D}{T}$, sowie das Produkt dieser mit
+der jeweiligen Temperatur.
+Es ergibt sich eine mittlere \textsc{Debye}-Temperatur von
+\begin{align}
+  \input{build/p-debye.tex}\,.
+\end{align}
+
+\subsection{Betrachtung der Theorie}
+Es soll
+\begin{equation}
+  \int_0^{ω_D} Z\l(ω\r)\,\dif{ω} \label{eqn:forderung}
+\end{equation}
+berechnet werden, um $ω_D$ und $θ_D$ zu bestimmen.
+Gegeben sind die Schallgeschwindigkeiten
+\begin{align}
+  v_{\text{long}} &= \SI{4.7}{\kilo\meter\per\second} \\
+  v_{\text{trans}} &= \SI{2.26}{\kilo\meter\per\second}\,.
+\end{align}
+Im \textsc{Debye}-Modell wird die spektrale Zustandsdichte $Z\l(ω\r)$ genähert,
+mit der Forderung
+\begin{itemize}
+  \item Phasengeschwindigkeit nicht abhängig von Frequenz und Ausbreitungsrichtung.
+\end{itemize}
+So müssen nur die Eigenfrequenzen abgezählt werden und es folgt
+\begin{align}
+  Z\l(ω\r)\,\dif{ω} &= \frac{3 L^2}{2 \mpi^2 v^3} ω^2\, \dif{ω}\,
+  \intertext{allerdings haben longitudinale und Transversale Wellen nicht
+    unbedingt die gleiche Geschwindigkeit, sodass das Modell verbessert werden kann, zu}
+  Z\l(ω\r)\,\dif{ω} &= \frac{L^2}{2 \mpi^2} ω^2 \left(\frac{1}{v_l^3} +
+    \frac{1}{v_{tr}^3}\right)\,\dif{ω}\,.
+  \intertext{Mit der Forderung \eqref{eqn:forderung} folgt}
+  ω_D^3 &= \frac{18 \mpi^2 N_L}{L^3} \frac{1}{\frac{1}{v_l^3} + \frac{2}{v_{tr}^3}}
+    = \SI{8.21e40}{\per\cubic\second}\\
+  ω_D &= \SI{43.5e12}{\per\second} \\
+  Z\l(ω\r)\,\dif{ω} &= \frac{9 N_L}{ω_D^3} ω^2\,\dif{ω}\,.
+  \intertext{Setzt man dieses in die Integraldarstellung}
+  C_V &= \frac{\ud}{\dif{T}} \int_0^{ω_D} Z\l(ω\r) \frac{\hbar ω}{\exp\left(
+    \frac{\hbar ω}{k_B T}\right) - 1}
+  \intertext{ein, folgt mit den Abkürzungen}
+  x &:= \frac{\hbar ω}{k_B T} \\
+  \frac{θ_D}{T} &:= \frac{\hbar ω_D}{k_B T} \\
+  C_{V,\textsc{Debye}} &= 9 R \left(\frac{θ_D}{T}\right)^{\!\!3} \int_0^{\frac{θ_D}{T}}
+    \frac{x^4 \me^x}{\left(\me^x - 1\right)^2}\,.
+  \intertext{Aus der Integrationsgrenze können wir}
+  θ_D &= \frac{\hbar ω_D}{k_B} = \SI{331.96}{\kelvin}
+\end{align}
+bestimmen.

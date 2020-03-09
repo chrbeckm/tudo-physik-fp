@@ -1,0 +1,77 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Magnetfeld der Spule}
+Die Messwerte dieser Messung befinden sich im Anhang.
+Das Maximum befindet sich bei
+\begin{align*}
+  B_{\text{max}} &= \SI{422}{\milli\tesla} \\
+  x_{\text{max}} &= \SI{109}{\milli\meter}\,.
+\end{align*}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-messung-a.pdf}
+  \caption{Graphische Darstellung des Magnetfeldes innerhalb der Spule am Ort der Proben.}
+  \label{fig:messung-a}
+\end{figure}
+
+\subsection{Faraday-Effekt}
+Aus den genommen Winkeln werden die Differenzen zwischen den beiden
+Polrichtungen des Magnetfeldes bestimmt
+\begin{equation*}
+  θ_{\text{kr}} = \frac{\abs{θ_1 - θ_2}}{2}
+\end{equation*}
+die Winkel $θ_{\text{kr}}$ werden dann durch die jeweilige Dicke der Probe geteilt.
+Das Ergebnis ist in Abbildung \ref{fig:messung-b} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-messung-b.pdf}
+  \caption{Graphische Darstellung der Faraday Winkel.}
+  \label{fig:messung-b}
+\end{figure}
+\FloatBarrier
+In Abbildung \ref{fig:messung-b-diff} sind die Differenzen zwischen den Faraday-Winkeln
+der Proben 1, 2 und der reinen Probe 0 dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-messung-b-diff.pdf}
+  \caption{Graphische Darstellung der Faraday Winkel minus der Winkel der reinen Probe.}
+  \label{fig:messung-b-diff}
+\end{figure}
+Die Ausgleichskurven der Form
+\begin{equation*}
+  θ\l(λ\r) = a \cdot λ^2
+\end{equation*}
+haben mit \texttt{scipy} die Faktoren
+\begin{align*}
+  \input{build/p-messung-b-a1.tex} \\
+  \input{build/p-messung-b-a2.tex}\,.
+\end{align*}
+Nach Gleichung \eqref{eqn:thetafrei} ist
+\begin{align*}
+  a_i &= \frac{\me_0^3}{8\mpi^2 ε_0 \symup{c}^3} \frac{N_i B}{n} \frac{1}{\l(m^\ast\r)^2} \\
+  m^\ast &= \sqrt{\frac{\me_0^3 B}{8 \mpi^2 ε_0 \symup{c}^3 n}\frac{N_i}{a_i}}
+\end{align*}
+mit den Konstanten \cite{constants}
+\begin{align*}
+  \me_0 &= \SI{1.6021766208e-19}{\coulomb} \\
+  B &= \SI{423}{\milli\tesla} \\
+  ε_0 &= \SI{8.854187817620389e-12}{\ampere\second\per\volt\per\meter} \\
+  \symup{c} &= \SI{299792458}{\meter\per\second}
+  \shortintertext{\cite{gaasn}}
+  n &= 3.57\,.
+\end{align*}
+
+Die Massen folgen zu
+\begin{align*}
+  \input{build/p-messung-b-m1.tex} \\
+  \input{build/p-messung-b-m2.tex}\,.
+  \intertext{Der Literaturwert ist}
+  m^\ast &= \num{0.063} m_{\me} = \SI{0,10414148e-31}{\kilo\gram}.
+\end{align*}
+Werden nur die positiven Werte in den Fits verwendet, folgen die effektiven Massen zu
+\begin{align*}
+  m_1^\ast &= \SI{0.59(8)e-31}{\kilo\gram} \\
+  m_2^\ast &= \SI{0.89(9)e-31}{\kilo\gram}\,.
+\end{align*}
+
+\input{content/tabellen.tex}

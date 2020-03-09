@@ -1,0 +1,48 @@
+\subsection{Z-Abhängigkeit der Streumaterialien bei einem großen Winkel}
+Die Z-Abhängigkeit der Streumaterialien wurde bestimmt, indem
+die Ordnungszahl $Z$ gegen den Quotienten ${\frac{I}{N\cdot x}}$
+bei einem Winkel von $\SI{20}{\degree}$ aufgetragen wird.
+Dabei ist $I$ die Intensität der $\alpha$-Teilchen in der Einheit
+\begin{equation}
+  \big[ I \big] = \Big[ \frac{\text{Counts}}{\text{Zeiteinheit}} \Big]\,,
+\end{equation}
+N ist die Anzahl der Streuzentren, welche sich aus der Teilchendichte des Materials bestimmt, und x ist die Dicke der Streufolie.
+Die verwendeten Parameter sind in Tabelle \ref{tab:params}  aufgetragen.
+
+\begin{table}
+  \centering
+  \caption{Parameter für die Messung der Z-Abhängigkeit.}
+  \label{tab:params}
+  \begin{tabular}{c| c c c}
+    \hline
+    & \multicolumn{3}{c}{Material} \\
+    \hline
+    \text{Parameter} & Al & Au & Bi \\
+    \hline
+    $\rho \, [\si{\gram\per\centi\meter\tothe{3}}]$ & 2.7 & 19.32 & 9.80 \\
+    $M_{mol} \, [\si{\gram\per\mole}]$ & 27 & 197 & 209 \\
+    $N \, \si{\per\cubic\meter}$ & $\num{6.022e28}$ & $\num{5.906e28}$ & $\num{2.824e28}$ \\
+%   $\rho_{N} \, [\si{\per\centi\metre\tothe{3}}]$ & $\num{6.022e18}$ & $\num{5.906e18}$ & $\num{2.823e18}$ \\
+    $x \, [\si{\micro\meter}]$ & 3 & 4 & 2 \\
+    $Z$ & 13 & 79 & 83 \\
+    $I \, [\si{\per\second}]$ & $\num{0.023(9)}$ & $\num{0.20(3)}$ & $\num{0.027(9)}$ \\
+    $\text{Counts}$ & 7 & 61 & 8 \\
+    $\symup{t} [\si{\second}]$ & 300 & 300 & 300 \\
+    $\sfrac{I}{N\cdot x\,[\SI{e-25}{\meter\squared\per\second}]}$ &  $\num{1.3(5)}$ & $\num{9(1)}$ & $\num{5(2)}$ \\
+  \end{tabular}
+\end{table}
+
+Der Fehler auf die Intensität ist aus der Poissonverteilung kommend
+\begin{equation}
+  \Delta I = \sqrt{I}\,,
+\end{equation}
+erst danach wird durch die Integrationszeit geteilt.
+$\symup{\Delta t}$ ist die Integrationszeit.
+Der mit diesen Daten entstandene Plot ist in Abbildung \ref{fig:zab} abgebildet.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/z_abh.pdf}
+  \caption{Z-Abhängigkeit der Streumaterialien.}
+  \label{fig:zab}
+\end{figure}

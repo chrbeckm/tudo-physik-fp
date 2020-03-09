@@ -1,0 +1,239 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Darstellung der Ergebnisse}
+In Abbildung~\ref{fig:temperatur} ist der Verlauf der Temperatur
+während der beiden Messungen aufgetragen, in der Abbildung~\ref{fig:strom}
+der Depolarisationsstrom während der Messungen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-temperatur.pdf}
+  \caption{Temperaturverlauf.}
+  \label{fig:temperatur}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-strom.pdf}
+  \caption{Stromverlauf.}
+  \label{fig:strom}
+\end{figure}
+In den beiden Plots sind einmal die Messwerte der Probentemperatur
+und des Depolarisationsstromes in Abhängigkeit der Zeit aufgetragen.
+\FloatBarrier
+Interessanter ist jedoch der Verlauf des Depolarisationsstromes in Abhängigkeit
+der Probentemperatur. Dies ist in Abbildung~\ref{fig:korrelation} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-korrelation.pdf}
+  \caption{Aufgetragen ist der Depolarisationsstrom in Abhängigkeit der Probentemperatur.}
+  \label{fig:korrelation}
+\end{figure}
+
+An diese Kurven wird jetzt mit \texttt{SciPy} eine Exponentialfunktion
+\begin{equation}
+  f\l(x\r) = a \cdot \me^{x \cdot b}
+\end{equation}
+an die ansteigende Flanke des zweiten Maximums gefittet.
+
+Die Ergebnisse für die Messung~1 sind \\
+\begin{align}
+  \input{build/p-korrektur-1-a.tex} \\
+  \input{build/p-korrektur-1-b.tex}\,.
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-korrektur-1.pdf}
+  \caption{Exponentialfit zur Korrektur der Messwerte der Messung 1.}
+  \label{fig:korrektur-1}
+\end{figure}
+
+Die Ergebnisse für die Messung~2 sind \\
+\begin{align}
+  \input{build/p-korrektur-2-a.tex} \\
+  \input{build/p-korrektur-2-b.tex}\,.
+\end{align}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-korrektur-2.pdf}
+  \caption{Exponentialfit zur Korrektur der Messwerte der Messung 2.}
+  \label{fig:korrektur-2}
+\end{figure}
+\FloatBarrier
+\subsection{Bestimmmung der Aktivierungsenergie - Methode I}
+Mit einer linearen Ausgleichsgeraden der Form
+\begin{align}
+  f\l(x\r) &= m \cdot x + b\,, \label{eqn:gerade}
+  \intertext{wobei $x = t$ und $f\l(x\r) = T$, erhalten wir die Heizraten}
+  \input{build/p-rate-m-1.tex} \\
+  \input{build/p-rate-m-2.tex} \\
+  \input{build/p-rate-b-1.tex} \\
+  \input{build/p-rate-b-2.tex}\,.
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-1-heiz-1.pdf}
+  \caption{Bestimmung der Heizrate für die Messung 1 mittels einer Ausgleichsgeraden.}
+  \label{fig:akt-1-heiz-1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-1-heiz-2.pdf}
+  \caption{Bestimmung der Heizrate für die Messung 2 mittels einer Ausgleichsgeraden.}
+  \label{fig:akt-1-heiz-2}
+\end{figure}
+\FloatBarrier
+In den Abbildungen~\ref{fig:akt-1-methode-1} und \ref{fig:akt-2-methode-1}
+ist je der Logarithmus der korrigierten Depolarisationsstromwerte gegen die inverse Temperatur aufgetragen.
+An die orangenen Messwerte wird eine Ausgleichsgerade~\eqref{eqn:gerade} gelegt.
+Diese hat die jeweiligen Parameter
+\begin{align}
+  \input{build/p-aktivierung-1-methode-1-m.tex} \\
+  \input{build/p-aktivierung-1-methode-1-b.tex} \\
+  \input{build/p-aktivierung-2-methode-1-m.tex} \\
+  \input{build/p-aktivierung-2-methode-1-b.tex}\,.
+\end{align}
+Es ergibt sich mit
+\begin{align}
+  W &= -k_B \cdot m \\
+  \input{build/p-aktivierung-1-methode-1-W.tex}
+    \input{build/p-aktivierung-1-methode-1-W-eV.tex} \\
+  \input{build/p-aktivierung-2-methode-1-W.tex}
+    \input{build/p-aktivierung-2-methode-1-W-eV.tex}\,.
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-1-methode-1.pdf}
+  \caption{Aufgetragen ist der Logarithmus des Depolarisationsstroms gegen die
+    inverse Temperatur für die erste Messreihe.
+    Einige der korrigierten Depolarisationsstromwerte sind negativ,
+    sodass kein Logarithmus gebildet werden kann.}
+  \label{fig:akt-1-methode-1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-2-methode-1.pdf}
+  \caption{Aufgetragen ist der Logarithmus des Depolarisationsstroms gegen die
+    inverse Temperatur für die zweite Messreihe.
+    Einige der korrigierten Depolarisationsstromwerte sind negativ,
+    sodass kein Logarithmus gebildet werden kann.}
+  \label{fig:akt-2-methode-1}
+\end{figure}
+
+\newpage
+
+\subsection{Bestimmmung der Aktivierungsenergie - Methode II}
+Für die zweite Methode schauen wir uns erst die korrigierte Stromkurve an.
+Diese ist für Messung~1 in Abbildung~\ref{fig:stromr1}, für Messung~2 in
+Abbildung~\ref{fig:stromr2} zu sehen. In den weiteren Schritten werden
+bezüglich der Messung~1 die positiven Messwerte zwischen
+$T \approx \SI{240}{\kelvin}$ und $\SI{270}{\kelvin}$ betrachtet,
+für die zweite Messung zwischen $T \approx \SI{235}{\kelvin}$ und
+$\SI{270}{\kelvin}$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-1-stromr-1.pdf}
+  \caption{Die korrigierte Stromkurve der Messung~1.}
+  \label{fig:stromr1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-2-stromr-1.pdf}
+  \caption{Die korrigierte Stromkurve der Messung~2.}
+  \label{fig:stromr2}
+\end{figure}
+
+Es wird dann das Integral
+\begin{align}
+  &\int_T^{T'} \!\! i\l(T\r) \, \dif{T'}
+  \intertext{mit der Trapezregel}
+  I &= \frac{b - a}{2} \left(i\l(a\r) + i\l(b\r)\right)
+  \intertext{bestimmt, mit einer in \texttt{python} selbstgeschriebenen Methode.
+    So, dass dann}
+  &\ln\left(\frac{\int_T^{T'} i(T) \symup{d}T'}{i(T) b}\right)
+\end{align}
+gegen die inverse Temperatur in den Abbildungen~\ref{fig:fit1} und
+\ref{fig:fit2} aufgetragen werden kann.
+Eine lineare Ausgleichsrechnung ergibt für die Gerade
+\begin{align}
+  y &= m \cdot x + b
+  \intertext{und die Umformungen}
+  W &= k_B \cdot m \\
+  τ_0 &= \me^{-b}
+  \intertext{die Werte}
+  \input{build/p-akt-1-meth-2-m.tex} \\
+  \input{build/p-aktivierung-1-methode-2-W.tex}
+    \input{build/p-aktivierung-1-methode-2-W-eV.tex} \\
+  \input{build/p-akt-1-meth-2-b.tex} \\
+  \input{build/p-akt-1-meth-2-tau.tex} \\
+  \input{build/p-akt-2-meth-2-m.tex} \\
+  \input{build/p-aktivierung-2-methode-2-W.tex}
+    \input{build/p-aktivierung-2-methode-2-W-eV.tex} \\
+  \input{build/p-akt-2-meth-2-b.tex} \\
+  \input{build/p-akt-2-meth-2-tau.tex}
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-1-fit-1.pdf}
+  \caption{Darstellung der logarithmierten, integrierten Werte in
+    Abhängigkeit der inversen Temperatur für die Messung~1.
+    Ebenfalls eingezeichnet ist die Ausgleichsgerade.}
+    \label{fig:fit1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-aktivierung-2-fit-1.pdf}
+  \caption{Darstellung der logarithmierten, integrierten Werte in
+    Abhängigkeit der inverssen Temperatur für die Messung~2.
+    Ebenfalls eingezeichnet ist die Ausgleichsgerade.}
+    \label{fig:fit2}
+\end{figure}
+
+\FloatBarrier
+\subsection{Bestimmung der Relaxationszeit}
+Wir bestimmen die Relaxationszeit, indem wir in Gleichung \eqref{eqn:theo-tau}
+die folgenden Werte einsetzen:
+\begin{align}
+  b_1 &= \SI{1.79(2)}{\kelvin\per\minute} \\
+  T_{\text{max}, 1} &= \SI{260.35}{\kelvin} \\
+  W_{1,1} &= \SI{1.8(1)e-19}{\joule} \\
+  τ_{1,1}\l(T_{\text{max},1}\r) &= \boxed{\SI{2.9(2)}{\second}} \\
+  τ_{1,1,0} &= \boxed{\SI{5(15)e-22}{\second}} \\
+  W_{1,2} &= \SI{1.72(5)e-19}{\joule} \\
+  τ_{1,2}\l(T_{\text{max},2}\r) &= \boxed{\SI{3.04(9)}{\second}} \\
+  τ_{1,2,0} &= \boxed{\SI{5(7)e-21}{\second}}\,.
+\end{align}
+Die Abbildungen \ref{fig:relax1} und \ref{fig:relax2} zeigen die damit
+bestimmten Relaxationszeiten in Abhängigkeit der Temperatur.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-taukurve1.pdf}
+  \caption{Temperaturabhängigkeit der Relaxationszeit mit den Werten der Messung~1.}
+  \label{fig:relax1}
+\end{figure}
+
+\begin{align}
+  b_2 &= \SI{1.106(9)}{\kelvin\per\minute} \\
+  T_{\text{max},2} &= \SI{255.55}{\kelvin} \\
+  W_{2,1} &= \SI{1.59(8)e-19}{\joule} \\
+  τ_{2,1}\l(T_{\text{max},2}\r) &= \boxed{\SI{5.13(26)}{\second}} \\
+  τ_{2,1,0} &= \boxed{\SI{1(3)e-19}{\second}} \\
+  W_{2,2} &= \SI{1.52(5)e-19}{\joule} \\
+  τ_{2,2}\l(T_{\text{max},2}\r) &= \boxed{\SI{5.36(18)e-18}{\second}} \\
+  τ_{2,2,0} &= \boxed{\SI{1(2)e-18}{\second}}
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/p-taukurve2.pdf}
+  \caption{Temperaturabhängigkeit der Relaxationszeit mit den Werten der Messung~2.}
+  \label{fig:relax2}
+\end{figure}

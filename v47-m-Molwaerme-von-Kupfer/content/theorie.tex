@@ -1,0 +1,101 @@
+\section{Motivation}
+\label{sec:motivation}
+Das Ziel dieses Versuches ist die Bestimmung der \textsc{Debye}-Temperatur
+$θ_D$ in Kupfer, dem verwendeten Material.
+Dafür wird in der Theorie erstmal das klassische Modell zur Temperaturabhängigkeit
+der Wärmekapazität $C(T)$ diskutiert und dann auf das \textsc{Debye}-Modell
+eingegangen.
+
+\section{Theoretische Grundlagen}
+\label{sec:theorie}
+Die Theorie folgt der Beschreibung in \cite{gross}.
+
+Grundlegend ist die Wärmekapazität $C$ definiert als
+\begin{align}
+  C &= \frac{\Del{Q}}{\Del{T}}\,.
+  \intertext{Damit nun unterschiedliche Materialien und Proben verglichen werden
+    können, gibt es die molare Wärmekapazität}
+  c^m &\equiv \frac{\Del{Q}}{\Del{T} \cdot \text{mol}}\,.\label{eqn:cp1}
+  \intertext{Eine weitere Art ist die spezifische Wärmekapazität}
+  c^{\text{mass}} &\equiv \frac{C}{m} \\
+  c^{\text{vol}} &\equiv \frac{C}{V}\,.
+  \intertext{Die \textsc{Debye}-Näherung wird interessant für $C_V$ und $C_p$.
+    Diese folgen aus dem ersten Hauptsatz der Thermodynamik}
+  \dif{Q} &= \dif{U} - \dif{W} = \dif{U} + p \dif{V}\,.
+  \intertext{Die Indizes $V$ und $p$ geben an, welche Größe konstant ist}
+  C_V &\equiv \left.\ableitung{Q}{T}\right|_V
+    = \left.\ableitung{U}{T}\right|_V \\
+  C_p &\equiv \left.\ableitung{Q}{T}\right|_p\,.
+  \intertext{Ebenfalls aus der Thermodynamik folgt der Zusammenhang}
+  C_p - C_V &= 9 α^2 κ V_0 T. \label{eqn:cp-cv}
+\end{align}
+Es treten auf die Temperatur $T$, das Volumen $V_0$, der Volumenausdehnungskoeffizient
+$\alpha_V^2$ und die Kompressibilität $κ$.
+
+\subsection{Klassische Betrachtung}
+Wir wollen ein System aus $N$-Atomen betrachten, daraus folgen $3N$ Schwingungsmoden.
+Durch den Gleichverteilungssatz wird der mittleren kinetischen und potentiellen
+Energie jedes Atoms $\sfrac{1}{2} k_B T$ zugeordnet.
+Die innere Energie ist somit
+\begin{align}
+  U &= U_{\text{Gleichgewicht}} + 3 N k_B T\,.
+  \intertext{Damit ergibt sich}
+  C_V &= 3 N k_B = 3 r' N' k_B
+\end{align}
+mit den neuen Konstanten der Anzahl an Einheitszellen $N'$ und $r'$ der
+Anzahl an Atomen in einer Einheitszelle.
+Dieses ist das \textsc{Dulong}-\textsc{Petit}-Gesetz.
+
+\subsection{Einbeziehung der Quantenmechanik}
+Werden die Schwingungen mit quantenmechanischen harmonischen Oszillatoren beschrieben,
+folgt die Wärmekapazität
+\begin{equation}
+  C_V = \left.\ableitung{\!\left<U\right>}{T}\right|_V = \sum_{q,\,r}
+    \ableitung{\,\!}{T} \frac{\hbarω_{q r}}
+    {\exp\left(\frac{\hbarω_{q r}}{k_b T}\right) - 1}\,.
+\end{equation}
+Damit ergibt sich für hohe Temperaturen $k_B T ≫ \hbar ω_{q r}$
+\begin{align}
+  C_V &= 3 r' N k_B
+  \intertext{und für tiefe Temperaturen $k_B T ≪ \hbar ω_{q r}$}
+  C_V &= V \frac{2 \mpi^2}{5} k_B \left(\frac{k_B T}{\hbar v_s}\right)^{\!\!3}\,.
+\end{align}
+
+\subsection{\textsc{Debye}-Näherung}
+Zum Start der \textsc{Debye}-Näherung werden folgende Annahmen getroffen:
+\begin{enumerate}
+  \item einatomige Basis: $r' = 1$
+  \item Betrachtung der drei akustischen Phononenzweige mit Dispersion $ω_i = v_i q$
+  \item Die Summation über $q$ wird zur Integration über die erste
+    Brillouin-Zone. Dies kann in der Form einer Kugel mit Radius $q_D$ geschehen.
+\end{enumerate}
+Für den \textsc{Debye}-Wellenvektor $q_D$ gilt
+\begin{equation}
+  q_D = \sqrt[3]{6\mpi^2 \frac{N}{V}}\,.
+\end{equation}
+Die \textsc{Debye}-Temperatur $θ_D$ wird als
+\begin{equation}
+  θ_D \equiv \frac{\hbarω_D}{k_B} = \frac{\hbar v_s}{k_B} \sqrt[3]{6\mpi^2 \frac{N}{V}}
+\end{equation}
+formuliert. In den Hoch- und Tieftemperaturgrenzfällen gilt
+\begin{equation}
+  C_V^D =
+  \begin{cases}
+    \frac{12\mpi^4}{5}N k_B \left(\frac{T}{θ_D}\right)^{\!\!3} \qquad
+      \text{für}~T ≪ θ_D \\
+    3 N k_B \hspace{6.3em} \text{für}~T ≫ θ_D
+  \end{cases}
+\end{equation}
+
+\subsection{Wärmetransport}
+Der Wärmetransport kann auf drei Arten erfolgen:
+\begin{itemize}
+  \item Strahlung
+  \item Konvektion
+  \item Wärmeleitfähigkeit
+\end{itemize}
+Die Wärmeleitfähigkeit würde über die Probenhalterung erfolgen,
+dies kann minimiert werden, indem Materialien verwendet die schlecht leiten.
+Durch ein Vakuum wird der Wärmeverlust durch Konvektion minimiert.
+Die Strahlungsverluste werden dadurch kompensiert, dass das Gehäuse indem die Probe ist,
+auf der gleichen Temperatur gehalten wird.

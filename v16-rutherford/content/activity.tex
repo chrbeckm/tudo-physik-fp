@@ -1,0 +1,28 @@
+\subsection{Aktivität der Probe}
+Die theoretische Aktivität der Probe beträgt
+\begin{equation}
+    A = \SI{330}{\kilo\becquerel}\cdot\exp\left(-\frac{\ln(2)}{\SI{423}{\year}}\SI{24.6}{\year}\right)
+    = \SI{317.23}{\kilo\becquerel}\,.
+\end{equation}
+Für die experimentelle Aktivität wird zuerst die effektive Detektorfläche bestimmt.
+Vor dem Detektor ist im Abstand von $\SI{4}{\milli\meter}$ eine
+$\SI{2}{\milli\meter}\times\SI{10}{\milli\meter}$ Blende montiert.
+Mit einem Strahlensatz kann das Verhältnis von Folie-Blende zu Folie-Detektor bestimmt werden.
+Es gilt nach Abbildung~\ref{fig:aufbau}
+\begin{align}
+    \frac{\SI{97}{\milli\meter}}{\SI{101}{\milli\meter}} &= \frac{\text{Blende}}{\text{Detektor}}
+\end{align}
+Es folgen
+\begin{align*}
+    \text{Detektor}_\text{Breite} &= \SI{106.46341}{\milli\meter} \\
+    \text{Detektor}_\text{Höhe} &= \SI{110.85365}{\milli\meter}\,.
+\end{align*}
+Der gesuchte Raumwinkel ist
+\begin{equation}
+    \laplaceΩ = 4\cdot\arctan\left(\frac{B\cdot H} {2\cdot\SI{101}{\milli\meter}\cdot\sqrt{4\cdot\SI{45}{\milli\meter}+B^2+H^2}}\right)
+    = \num{0.90495}\,.
+\end{equation}
+Die Aktivität folgt mit
+\begin{equation}
+    A_\text{exp} = I_0\frac{4\mpi}{\laplaceΩ} = \SI{224(6)}{\kilo\becquerel}\,.
+\end{equation}

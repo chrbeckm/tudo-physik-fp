@@ -1,0 +1,132 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Stabilität}
+In Abbildung \ref{fig:stabi-2konkav} sind die Messwerte der Messung aufgetragen,
+zusammen mit zwei Theoriekurven nach Gleichung \eqref{eqn:stabi}.
+Die Theoriekurve hat die Form
+\begin{align}
+    \left(g_1g_2\right)_\text{Theorie} &= \num{15000}\cdot
+        \left(1-\frac{L}{\SI{1}{\meter}}\right)^{\!2} \label{eqn:g1g2}.
+    \intertext{Die Minima liegen bei}
+    L_\text{Messwerte} &= \SI{1.02}{\meter} \\
+    L_\text{Theorie} &= \SI{1}{\meter}\,.
+\end{align}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/stabi-2konfokal.pdf}
+    \caption{Messwerte und Theoriewerte für 2 konfokale Spiegel.}
+    \label{fig:stabi-2konkav}
+\end{figure}
+\FloatBarrier
+Für die Kombination aus planarem und konfokalen Spiegel lauten die Theoriegleichungen
+\begin{align}
+    \left(g_1g_2\right)_\text{rot} &= 200\cdot\left(1-\frac{L}{\SI{1.4}{\meter}}\right) \\
+    \left(g_1g_2\right)_\text{schwarz} &= 200\cdot\left(1-\frac{L}{\SI{1}{\meter}}\right) \\
+    \left(g_1g_2\right)_\text{grün} &= 500\cdot\left(1-\frac{L}{\SI{0.7}{\meter}}\right)\,.
+\end{align}
+Es gibt folglich keine Minima.
+Die Werte sind in Abbildung \ref{fig:stabi-planar-konkav} dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/stabi-konfokal-planar.pdf}
+    \caption{Messwerte und Theoriewerte für je einen planaren und konfokalen Spiegel.}
+    \label{fig:stabi-planar-konkav}
+\end{figure}
+\FloatBarrier
+
+\subsection{Transversal Elektische Moden}
+Die Ergebnisse der Messung der $\text{TEM}_{00}$ sind in Abbildung \ref{fig:tem00} zu sehen.
+Es wird ein Fit der Form
+\begin{align}
+    f(x) &= a\cdot \exp\left(-\frac{(x-μ)^2}{2\cdot σ^2}\right)
+    \intertext{angesetzt. Es kann keine normierte Gauß-Funktion verwendet,
+      da die Intensität ebenfalls nicht normiert ist.
+      Es folgen mit scipy \cite{scipy} die Fitparameter}
+    \input{build/tem00-mu.tex} \\
+    \input{build/tem00-sigma.tex} \\
+    \input{build/tem00-a.tex}\,.
+\end{align}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/tem00.pdf}
+    \caption{Messwerte für die $\text{TEM}_{00}$.}
+    \label{fig:tem00}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/tem10.pdf}
+  \caption{Messwerte für die $\text{TEM}_{10}$.}
+  \label{fig:tem10}
+\end{figure}
+
+\FloatBarrier
+Für die Messung der $\text{TEM}_{10}$ sind in Abbildung \ref{fig:tem10}
+die Messwerte aus Tabelle \ref{tab:tem10-neu} aufgetragen.
+Der Fit der Form
+\begin{align}
+    f(x) &= a\cdot (x-μ_a)^2\exp\left(-\frac{(x-μ_b)^2}{b^2}\right)
+    \intertext{bringt die Paramter}
+    \input{build/tem10-mua.tex} \\
+    \input{build/tem10-mub.tex} \\
+    \input{build/tem10-a.tex} \\
+    \input{build/tem10-b.tex}\,.
+\end{align}
+
+\FloatBarrier
+
+\subsection{Polarisation}
+Die Polarisationsmesswerte sind in Abbildung \ref{fig:polarisation} als Polarplot abgebildet.
+Als Radius ist die Intensität in $\si{\micro\ampere}$ gesetzt.
+Der Winkel entspricht dem Winkel des Polarisators.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{build/polar.pdf}
+    \caption{Polarplot der Polarisationsmessung.}
+    \label{fig:polarisation}
+\end{figure}
+\FloatBarrier
+
+\subsection{Wellenlänge}
+Die theoretische Wellenlänge eines Helium-Neon Lasers im sichtbaren Bereich beträgt laut \cite{eichler}
+\begin{equation}
+    λ_\text{theo} = \SI{633}{\nano\meter}\,.
+\end{equation}
+Mit der Gleichung \eqref{eqn:gitter} werden die Wellenlängen pro Maximum gebildet, die Werte stehen in
+Tabelle \ref{tab:gitter}.
+Die Wellenlängen werden dann nach
+\begin{align}
+    \overline{λ} &= \frac{1}{N} \sum_{i=0}^{N} λ_i \label{eqn:mittelwert}
+    \intertext{mit dem Fehler}
+    \increment\overline{λ} &= \sqrt{ \frac{1}{N(N-1)} \sum_{k=0}^{N} \left( λ_k - \overline{λ} \right)^2}
+    \label{eqn:mittelwertfehler}
+\end{align}
+gemittelt.
+Es folgen
+\begin{align}
+  \input{build/gitter100.tex} \\
+  \input{build/gitter80.tex}\,.
+\end{align}
+
+\begin{table}
+    \centering
+    \caption{Messwerte und Ergebnisse der Wellenlängenbestimmung.}
+    \label{tab:gitter}
+    \begin{tabular}{S[table-format=1.0] S[table-format=2.1] S[table-format=3.1]
+                | S[table-format=1.0] S[table-format=2.1] S[table-format=3.1]}
+        \toprule
+        \multicolumn{3}{c|}{$100\frac{\text{Linien}}{\si{\milli\meter}}$} &
+          \multicolumn{3}{c}{$80\frac{\text{Linien}}{\si{\milli\meter}}$} \\
+        {$k$} & {$d_k\;/\;\si{\centi\meter}$} & {$λ\;/\;\si{\nano\meter}$} &
+          {$k$} & {$d_k\;/\;\si{\centi\meter}$} & {$λ\;/\;\si{\nano\meter}$} \\
+        \midrule
+        1 &  8.5 & 633.1 & 1 &  6.8 & 633.5 \\
+        1 &  8.5 & 633.1 & 1 &  6.7 & 624.2 \\
+        2 & 17.2 & 636.6 & 2 & 13.5 & 626.5 \\
+        2 & 17.1 & 632.9 & 2 & 13.5 & 626.5 \\
+        3 & 25.9 & 632.6 & 3 & 20.3 & 624.1 \\
+        3 & 25.9 & 632.6 & 3 & 20.4 & 627.1 \\
+          &      &       & 4 & 27.3 & 624.1 \\
+          &      &       & 4 & 27.5 & 627.1 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

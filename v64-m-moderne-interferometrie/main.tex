@@ -1,0 +1,28 @@
+\input{../header.tex}
+\subject{V64}
+\title{Moderne Interferometrie}
+\date{%
+  Durchführung: 20.01.2020
+}
+
+\begin{document}
+
+  \maketitle
+  \thispagestyle{empty}
+  \tableofcontents
+
+  \newpage
+  \input{content/theorie.tex}
+
+  \input{content/durchfuehrung.tex}
+  \newpage
+  \input{content/auswertung.tex}
+
+  \input{content/diskussion.tex}
+  \printbibliography{}
+  \newpage
+  \input{content/anhang.tex}
+  \FloatBarrier
+  \includepdf[pages=-, angle=180]{data/v64-messwerte.PDF}
+
+\end{document}

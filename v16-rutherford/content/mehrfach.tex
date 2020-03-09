@@ -1,0 +1,33 @@
+\subsection{Mehrfachstreuungen}
+In Abbildung \ref{fig:mehrfach} sind die Counts für verschiedene
+Foliendicken bei einem Winkel von $\SI{0}{\degree}$ gegen die Foliendicke aufgetragen.
+Die Werte stehen in Tabelle \ref{tab:mehrfach}.
+
+\begin{table}
+    \centering
+    \caption{Messwerte für verschiedene Foliendicken.}
+    \label{tab:mehrfach}
+    \begin{tabular}{S[table-format=1.0] S[table-format=3.0]
+        S[table-format=4.0] @{${}\pm{}$} S[table-format=2.0]
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.1]
+        S[table-format=2.1] @{${}\pm{}$} S[table-format=1.1]}
+        \toprule
+        {$x\:/\:\si{\micro\meter}$} &
+        {$t_\text{int}\:/\:\si{\second}$} &
+        \multicolumn{2}{c}{Counts} &
+        \multicolumn{2}{c}{$\frac{\text{Counts}}{\si{\second}}$} &
+        \multicolumn{2}{c}{$\frac{\symup{d\sigma}}{\symup{d\Omega}}\,[\si{\per\meter\squared}]$} \\
+        \midrule
+        0 & 100 & 1610 & 40 & 16.1  & 0.4 &       &     \\
+        2 & 100 &  924 & 30 &  9.24 & 0.3 & 85    & 3   \\
+        4 & 240 & 1271 & 36 &  5.3  & 0.2 & 24.2  & 0.9 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/mehrfach.pdf}
+    \caption{Plots der Mehrfachstreuungen.}
+    \label{fig:mehrfach}
+\end{figure}

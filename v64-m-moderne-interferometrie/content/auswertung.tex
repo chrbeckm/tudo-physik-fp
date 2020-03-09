@@ -1,0 +1,100 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Kontrast}
+Die Messwerte in Tabelle~\ref{tab:m1} sind mit einem Wurzelfehler versehen worden,
+da eine Zählung immer nach der \textsc{Poisson}-Statistik verteilt ist.
+Der Kontrast wird mit Gleichung~\eqref{eqn:kontrast} bestimmt.
+Graphisch ist der Verlauf in Abbildung~\ref{fig:m1} zu sehen.
+Das Maximum liegt somit bei
+\begin{align}
+  φ &= \SI{45}{\degree} \\
+  \text{Kontrast} &= 0,928\,.
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/p-m1.pdf}
+  \caption{Darstellung des Kontrasts als Polarplot, der Winkel ist der
+    am Polarisator eingestelle Winkel.}
+  \label{fig:m1}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Daten der Messung~1 und der zugehörige Kontrast.}
+  \label{tab:m1}
+  \input{build/p-m1.tex}
+\end{table}
+
+\FloatBarrier
+\subsection{Brechungsindex von Glas}
+Von den Messwerten in Tabelle~\ref{tab:m3} wird der Mittelwert zu
+\begin{align}
+  \input{build/p-m3-werte.tex}
+  \intertext{bestimmt. Die Phasenverschiebung folgt mit}
+  \overline{\Del{Φ}} &= 2 \mpi \cdot \overline{M}
+  \shortintertext{zu}
+  \input{build/p-m3-phase.tex}\,.
+  \intertext{Mit Gleichung~\eqref{eqn:brechFestk} wird der Brechungsindex
+    mit den Winkeln}
+  \Del{θ} = θ &= \SI{9}{\degree} \wedge \SI{10}{\degree}
+  \shortintertext{bestimmt:}
+  \input{build/p-m3-n9.tex} \\
+  \input{build/p-m3-n10.tex}\,.
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Messung~3.}
+  \label{tab:m3}
+  \sisetup{table-format=2.0}
+  \begin{tabular}{c S S S S S S S S S S}
+    \toprule
+    {Messung}         &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 & 10 \\
+    {\# Counts ($M$)} & 37 & 36 & 36 & 34 & 35 & 34 & 38 & 35 & 36 & 35 \\
+    \midrule
+    {Messung}         & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+    {\# Counts ($M$)} & 35 & 35 & 35 & 33 & 37 & 34 & 35 & 34 & 38 & 34 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{Brechungsindex von Luft}
+\label{sec:m4}
+Die Werte der Messung~4 stehen in Tabelle~\ref{tab:m4-werte}
+im Kapitel~\ref{sec:anhang}.
+Der Brechungsindex des Behälterinhalts wird mit
+\begin{align}
+  n_B &= \frac{λ \cdot M}{L} + n_A
+  \intertext{berechnet, wobei}
+  n_A &= \num{1}
+\end{align}
+der Brechungsindex des Vakuums ist.
+Die so bestimmten Werte stehen in Tabelle~\ref{tab:m4-behbrech}.
+Diese werden dann an eine Gerade der Form
+\begin{equation}
+  n^2 = A \cdot p + B
+\end{equation}
+mit \texttt{scipy.optimize} gefittet.
+Die Fitparameter stehen in Tabelle~\ref{tab:m4-fit}.
+Es ergeben sich die gemittelten Werte
+\begin{align}
+  \input{build/p-m4-amean.tex} \\
+  \input{build/p-m4-bmean.tex}\,.
+\end{align}
+Mit diesen Fitparametern und den vorgegebenen Werten
+\begin{align}
+  T &= \SI{15}{\celsius} = \SI{288.15}{\kelvin} \\
+  p &= \SI{1013}{\milli\bar}
+  \intertext{ergibt sich der Brechungsindex zu}
+  \input{build/p-m4-normbrech.tex}\,.
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Fitparameter der Messung~4.}
+  \label{tab:m4-fit}
+  \input{build/p-m4-fit.tex}
+\end{table}

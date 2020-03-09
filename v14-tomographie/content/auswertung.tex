@@ -1,0 +1,206 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Von den gemessenen Intensitäten werden erst die Wurzeln gezogen, da die Zählungen
+entsprechnd der \glname{Poisson}{-Statistik} verteilt sind.
+Dann wird durch die Integrationszeit geteilt,
+um die Zählraten zu bestimmen und vergleichen zu können.
+
+\subsection{Spektrum der ${}^{137}$Cs-Quelle}
+\label{sec:spectrum}
+Das Spektrum der ${}^{137}$Cs-Quelle ist in Abbildung~\ref{fig:spektrum} zu sehen.
+Die Messwerte werden so skaliert, dass das Maximum bei $E = \SI{662}{\kilo\electronvolt}$
+und bei $E = \SI{200}{\kilo\electronvolt}$ die klare Kante
+aufgrund der Energieauflösung des Detektors liegt.
+Mit der schwarzen Linie ist die Energie der $γ$-Strahlung der ${}^{137}$Cs-Quelle bei
+$E = \SI{662}{\kilo\electronvolt}$ gekennzeichnet.
+Im Energiebereich von 200 bis $\approx \SI{500}{\kilo\electronvolt}$ ist zu sehen,
+dass ein Teil der Strahlung der mit der \glname{Compton}{-Streuung} wechselwirkt auch in Richtung des Detektors gestreut wird.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/spektrum.pdf}
+  \caption{Das Spektrum der ${}^{137}$Cs-Quelle. Aufgetragen sind die Counts pro Sekunde gegen die Energie der detektierten Strahlung.}
+  \label{fig:spektrum}
+\end{figure}
+
+\newpage
+
+\subsection{Würfel 1}
+Die Nullmessung ohne Würfel bringt den Wert von
+\begin{align}
+    I_0 &= \SI{139(4)}{\per\second}\,.
+    \shortintertext{Die Werte für den leeren Aluminiumwürfel stehen in Tabelle~\ref{tab:wuerfel-1}.
+        Die Abschwächung wird mit der Gleichung~\eqref{eqn:abschwaechung} für jedes $μ$ einzeln bestimmt.
+        Die Dicke der Aluminiumhülle wird mit}
+    d_i &= \SI{1}{\milli\meter}\,,
+    \shortintertext{bei beiden Seiten}
+    d &= \SI{2}{\milli\meter}\,,
+    \shortintertext{angegeben. Der Mittelwert der Abschwächungskonstanten $μ$ ergibt sich mit dem Mittelwert}
+    \overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i \label{eqn:mittelwert}
+    \shortintertext{und dem Fehler des Mittelwertes}
+    \increment\overline{x}&=\sqrt{\frac{1}{N(N-1)}\sum_{k=0}^{N}\left(x_k-\overline{x}\right)^2}\label{eqn:mittelwertfehler}
+    \shortintertext{zu}
+    \input{build/wuerfel-1-mu.tex}\,.
+    \shortintertext{Mit der Dichte von Aluminium \cite{alu-dichte}}
+    ρ_\text{Al} &= \SI{2.71}{\gram\per\cubic\centi\meter}
+    \shortintertext{ergibt sich die Abschwächungskonstante}
+    \input{build/wuerfel-1-al.tex}\,.
+    \shortintertext{Der Literaturwert beträgt \cite{absch-lit}}
+    μ_\text{Al, lit} &= \SI{0.07466}{\centi\meter\squared\per\gram}\,.
+    \shortintertext{In jeder weiteren Messung ist der Aluminiumwürfel ebenfalls verhanden.
+    Es wird der Faktor gesucht, der die Abschwächung durch den Würfel beschreibt}
+    \frac{I_k}{I_0} &= c_k\,.
+    \shortintertext{Die Mittelung aller Faktoren führt zu}
+    \input{build/aluminium-abschwaechung.tex}\,. \label{eqn:alabsch}
+\end{align}
+\begin{table}
+  \centering
+  \caption{Zählraten, Abschwächungskonstanten und Intensitätsverlustfaktoren der einzelnen Intensitäten des Würfel~1.}
+  \label{tab:wuerfel-1}
+  \begin{tabular}{S[table-format=2.0] S[table-format=3.0]@{${}\pm{}$}S[table-format=1.0]
+      S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2] S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2]}
+    \toprule
+    {Intensität} & \multicolumn{2}{c}{$\text{Counts}\;/\;\frac{1}{\si{\second}}$}
+      & \multicolumn{2}{c}{$μ\;/\;\frac{1}{\si{\centi\meter}}$} & \multicolumn{2}{c}{$c_i$} \\
+    \midrule
+     1 & 102 & 3 & 1.5 & 0.2 & 0.73 & 0.03 \\
+     2 &  99 & 3 & 1.7 & 0.2 & 0.71 & 0.03 \\
+     3 & 101 & 3 & 1.6 & 0.2 & 0.73 & 0.03 \\
+     4 & 103 & 3 & 1.5 & 0.2 & 0.74 & 0.03 \\
+     5 & 102 & 3 & 1.6 & 0.2 & 0.73 & 0.03 \\
+     6 & 103 & 3 & 1.5 & 0.2 & 0.74 & 0.03 \\
+     7 & 100 & 3 & 1.6 & 0.2 & 0.72 & 0.03 \\
+     8 &  99 & 3 & 1.7 & 0.2 & 0.72 & 0.03 \\
+     9 & 101 & 3 & 1.6 & 0.2 & 0.73 & 0.03 \\
+    10 &  99 & 3 & 1.7 & 0.2 & 0.71 & 0.03 \\
+    11 & 102 & 3 & 1.5 & 0.2 & 0.74 & 0.03 \\
+    12 & 104 & 3 & 1.4 & 0.2 & 0.75 & 0.03 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+\subsection{Würfel 2}
+Die Zählraten des zweiten Würfels werden durch $c_\text{Al}$~\eqref{eqn:alabsch} geteilt,
+um den Einfluss der Aluminiumhülle rauszurechnen.
+Die Abschwächungskonstante wird mit Gleichung~\eqref{eqn:intensity} bestimmt.
+Es ergibt sich die mittlere Abschwächung für den Würfel~2
+\begin{align}
+    \input{build/wuerfel-2-mu.tex}\,.
+\end{align}
+Die Werte der Messung und die einzelnen Abschwächungskonstanten stehen in Tabelle~\ref{tab:wuerfel-2}.
+Die Zuordnung zu einem Material erfolgt nach der Betrachtung des Würfels~3.
+\begin{table}
+  \centering
+  \caption{Zählraten und Abschwächungskonstanten der einzelnen Intensitäten des Würfel~2.}
+  \label{tab:wuerfel-2}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.1]@{${}\pm{}$}S[table-format=1.1]
+      S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2]}
+    \toprule
+    {Intensität} & \multicolumn{2}{c}{$\text{Counts}\;/\;\frac{1}{\si{\second}}$}
+      & \multicolumn{2}{c}{$μ\;/\;\frac{1}{\si{\centi\meter}}$} \\
+    \midrule
+    2 & 12.2 & 0.6 & 0.57 & 0.01 \\
+    3 & 29.5 & 1.0 & 0.55 & 0.01 \\
+    4 & 19.9 & 0.8 & 0.65 & 0.02 \\
+    5 & 20.2 & 0.8 & 0.64 & 0.02 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\newpage
+\subsection{Würfel 3}
+Für die Messung am dritten Würfel ergibt sich mit den oben beschrieben Schritten
+aus den Daten in Tabelle~\ref{tab:wuerfel-2} die Abschwächungskonstante
+\begin{align}
+    \input{build/wuerfel-3-mu.tex}\,.
+\end{align}
+\begin{table}
+  \centering
+  \caption{Zählraten und Abschwächungskonstanten der einzelnen Intensitäten des Würfels~3.}
+  \label{tab:wuerfel-3}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.1]@{${}\pm{}$}S[table-format=1.1]
+      S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2]}
+    \toprule
+    {Intensität} & \multicolumn{2}{c}{$\text{Counts}\;/\;\frac{1}{\si{\second}}$}
+      & \multicolumn{2}{c}{$μ\;/\;\frac{1}{\si{\centi\meter}}$} \\
+    \midrule
+    2 & 100 & 2 & 0.08 & 0.01 \\
+    3 & 108 & 2 & 0.09 & 0.01 \\
+    4 & 110 & 2 & 0.08 & 0.01 \\
+    5 & 115 & 2 & 0.06 & 0.01 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+Die Literaturwerte der Dichten von Eisen \cite{fe-lit}, Blei \cite{pb-lit} und Messing \cite{messing-lit} sind
+\begin{align}
+    ρ_\text{Fe} &= \SI{7.874}{\gram\per\cubic\centi\meter} \\
+    ρ_\text{Pb} &= \SI{11.34}{\gram\per\cubic\centi\meter} \\
+    ρ_\text{Messing} &= \SI{8.44}{\gram\per\cubic\centi\meter} \,.
+    \intertext{Die Abschwächungskonstanten sind \cite{absch-lit}}
+    μ_\text{Fe} &= \SI{0.07346}{\centi\meter\squared\per\gram} = \SI{0.57842404}{\per\centi\meter} \\
+    μ_\text{Pb} &= \SI{0.1101}{\centi\meter\squared\per\gram} = \SI{1.248534}{\per\centi\meter} \\
+    μ_\text{Messing} &= \SI{0.07282}{\centi\meter\squared\per\gram} = \SI{0.6146008}{\per\centi\meter} \,.
+\end{align}
+Der Würfel~2 ist somit aus Messingwürfeln zusammengesetzt und dem Würfel~3 wird Eisen zugeordnet.
+Da keines der vorgebenen Materialien besser passt.
+Die relativen Fehler betragen mit
+\begin{align}
+  \increment f_{\%}&=\frac{|\text{Soll}\:-\:\text{Ist}|}{\text{Soll}}\cdot\SI{100}{\percent}
+	\label{eqn:prozfehler}
+  \shortintertext{für den Würfel~2}
+  f_2 &= (\num{19(16)})\,\text{\textperthousand}
+  \shortintertext{und für den Würfel~3}
+  f_3 &= \SI{87(2)}{\percent}\,.
+\end{align}
+\newpage
+\subsection{Würfel 5}
+Die Matrix $\matrize{A}$ folgt aus den Wegen entlang derer die Intensitäten bestimmt werden.
+Nach Abbildung~\ref{fig:projection} folgt diese mit
+\begin{equation}
+    \matrize{A} = \begin{bmatrix}
+    0 & \sqrt{2} & 0 & \sqrt{2} & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & \sqrt{2} & 0 & \sqrt{2} & 0 & \sqrt{2} & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & \sqrt{2} & 0 & \sqrt{2} & 0 \\
+    1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+    0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0 \\
+    \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2} \\
+    0 & 0 & 0 & \sqrt{2} & 0 & 0 & 0 & \sqrt{2} & 0 \\
+    0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\
+    1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+\end{bmatrix}
+\end{equation}
+
+Die Messwerte und Abschwächungskonstanten sind in Tabelle~\ref{tab:wuerfel-5} aufgetragen.
+\begin{table}
+    \centering
+    \caption{Zählraten und Abschwächungskonstanten der einzelnen Intensitäten des Würfel~5.}
+    \label{tab:wuerfel-5}
+    \begin{tabular}{S[table-format=1.0]
+      S[table-format=2.1]@{${}\pm{}$}S[table-format=1.1]
+        S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2]
+        S[table-format=1.2]@{${}\pm{}$}S[table-format=1.2] c
+        S[table-format=2.0]@{${}\pm{}$}S[table-format=1.0] }
+      \toprule
+      {Intensität} & \multicolumn{2}{c}{$\text{Counts}\;/\;\frac{1}{\si{\second}}$}
+                & \multicolumn{2}{c}{$\ln\left(\frac{1}{1}\right)$}
+                & \multicolumn{2}{c}{$μ\;/\;\frac{1}{\si{\centi\meter}}$} & {Material}
+                & \multicolumn{2}{c}{$\text{relativer Fehler}\;/\;\si{\percent}$}\\
+      \midrule
+       1 & 56 & 2 & 0.91 & 0.04 & 0.50 & 0.02 & Messing & 19 & 4 \\
+       2 & 50 & 2 & 1.02 & 0.04 & 0.11 & 0.02 & Eisen   & 81 & 3 \\
+       3 & 57 & 2 & 0.90 & 0.04 & 0.06 & 0.02 & Eisen   & 90 & 4 \\
+       4 & 72 & 2 & 0.66 & 0.04 & 0.53 & 0.02 & Messing & 14 & 3 \\
+       5 & 70 & 2 & 0.68 & 0.04 & 0.05 & 0.02 & Eisen   & 91 & 3 \\
+       6 & 27 & 1 & 1.65 & 0.05 & 0.13 & 0.02 & Eisen   & 78 & 3 \\
+       7 & 96 & 2 & 0.37 & 0.03 & 0.60 & 0.02 & Messing &  3 & 4 \\
+       8 & 29 & 1 & 1.58 & 0.05 & 0.50 & 0.02 & Messing & 18 & 3 \\
+       9 & 31 & 1 & 1.49 & 0.05 & 0.55 & 0.02 & Messing & 10 & 4 \\
+      10 & 68 & 2 & 0.71 & 0.04 &      &      &         &    &   \\
+      11 & 74 & 2 & 0.62 & 0.04 &      &      &         &    &   \\
+      12 & 28 & 1 & 1.60 & 0.05 &      &      &         &    &   \\
+      \bottomrule
+    \end{tabular}
+\end{table}

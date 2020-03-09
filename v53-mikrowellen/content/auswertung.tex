@@ -1,0 +1,173 @@
+\newpage
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Untersuchung der Moden}
+In Abbildung \ref{fig:frequenzbild} ist die Frequenz der Mikrowellen gegen die Spannung am Reflektor aufgetragen.
+Die Abhängigkeit der Mikrowellenamplitude von der Reflektorspannung ist in Abbildung \ref{fig:Uausbild} gezeigt.
+Die Mikrowellenamplitude wird als Spannung dargestellt, da es mit einer Diode gemessen wird.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{build/messung1_f.pdf}
+  \caption{Plot der Abhängigkeit der Frequenz von der Reflektorspannung.}
+  \label{fig:frequenzbild}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{build/messung1_Uaus.pdf}
+  \caption{Plot der Abhängigkeit der Ausgangsspannung von der Reflektorspannung.}
+  \label{fig:Uausbild}
+\end{figure}
+\newpage
+\textbf{Korrektur:}
+Die Reflektorspannung eines Reflexklystrons kann mittels
+\begin{align}
+  V_\text{R} &= \num{6.74e-6}\cdot f\cdot L\cdot\frac{\sqrt{V_0}}{N}-V_0
+  \intertext{bestimmt werden. Da $V_\text{R}$ eingestellt wird, kann auch die Länge
+    des Reflexklystrons bestimmt werden. Die verwendeten Werte sind}
+    V_\text{R} &= \SI{160}{\volt} \\
+    f &= \SI{9}{\giga\hertz} \\
+    V_0 &= \SI{300}{\volt} \\
+    N &= \num{2.75}\,.
+    \intertext{Es folgt}
+    L &= \frac{\SI{300}{\volt}+\SI{160}{\volt}}
+    {\num{6.74e-6}\sqrt{\si{\kilo\gram\per\ampere\per\second}}
+    \cdot\SI{9}{\giga\hertz}\cdot\sqrt{\SI{300}{\volt}}}\cdot\num{2.75} \\
+    &= \SI{1.204}{\milli\meter}\,.
+\end{align}
+\FloatBarrier
+
+\subsection{Bestimmung der Wellenlänge und der Frequenz}
+Von den Messwerten in Tabelle \ref{tab:messung2} werden zuerst die Abstände bestimmt.
+\begin{table}
+    \centering
+    \caption{Messwerte der zweiten Messung.}
+    \label{tab:messung2}
+    \sisetup{table-format=3.1}
+    \begin{tabular}{S S}
+        \toprule
+        {Kurzschluss $\SI{1}{\milli\meter}$} & {Kurzschluss $\SI{3}{\milli\meter}$} \\
+        {Position / $\si{\milli\meter}$} & {Position / $\si{\milli\meter}$} \\
+        \midrule
+         46.0 &  45.0 \\
+         71.5 &  69.3 \\
+         95.5 &  93.0 \\
+        120.5 & 118.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Diese entsprechen der halben Wellenlänge.
+Mit dem Mittelwert nach
+\begin{align}
+    \overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i \label{eqn:mittelwert} \\
+    \intertext{und dem Mittelwertsfehler}
+    \increment\overline{x} &= \sqrt{\frac{1}{N(N-1)}
+    \sum_{k=0}^{N}\left( x_k - \overline{x} \right)^2} \label{eqn:mittelwertfehler}
+    \intertext{ergeben sich die Wellenlängen}
+    λ_1 &= \SI{49.7(9)}{\milli\meter} \\
+    λ_3 &= \SI{49(1)}{\milli\meter}\,.
+    \intertext{Die Cut-off Wellenlänge beträgt nach Gleichung \eqref{eqn:cutoff}}
+    λ_\text{c} &= 2\cdot\SI{22.8}{\milli\meter} = \SI{45.6}{\milli\meter}\,.
+    \intertext{Die entsprechenden Frequenzen sind mit}
+    f &= \symup{c}\sqrt{\frac{1}{λ_\text{g}^2}+\frac{1}{λ_\text{c}^2}}
+    \intertext{und dem Fehler nach der Gaußschen Fehlerfortpflanzung}
+    \increment f &= \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}f}{\symup{d}y_j}
+	   \increment y_j\right)^{\!\! 2}}
+	    \label{eqn:fehler}
+    \shortintertext{hier}
+    \increment f &= \frac{\symup{c}}
+      {λ_\text{g}^3\sqrt{\frac{1}{λ_\text{g}^2}+\frac{1}{λ_\text{c}^2}}}
+      \incrementλ \\
+    f_1 &= \SI{8.93(7)}{\giga\hertz} \\
+    f_3 &= \SI{8.98(9)}{\giga\hertz}\,.
+    \intertext{Die Phasengeschwindigkeit folgt mit}
+    v_\text{ph} &= λ_\text{g}\cdot f
+    \shortintertext{und}
+    \increment v_\text{ph} &= \sqrt{(f\incrementλ_\text{g})^2+(λ_\text{g}\increment f)^2}
+    \shortintertext{zu}
+    v_\text{ph,1} &= (\num{1.479(14)})\symup{c} \\
+    v_\text{ph,3} &= (\num{1.468(17)})\symup{c}\,.
+\end{align}
+\FloatBarrier
+
+\subsection{Bestimmung der Dämpfung des Mikrowellenfeldes}
+In Abbildung \ref{fig:daempfbild} sind die Messwerte, sowie die Theoriewerte,
+die der auf dem Bauteil aufgedruckten Abbildung entnommen worden sind.
+Die Messwerte sind so gewählt, dass bei $d= 0$ keine Dämpfung vorliegt.
+Auf der X-Achse ist die Stellung der Dämpfungsschraube gegen das Leistungsverhältnis
+auf der Y-Achse aufgetragen.
+Als Fitfunktion der Messwerte wird
+\begin{align}
+    f(d) &= A\cdot\exp(B\cdot d)+C
+    \intertext{gewählt. Es folgen die Fitparameter}
+    \input{build/messung2-a.tex} \\
+    \input{build/messung2-b.tex} \\
+    \input{build/messung2-c.tex} \,.
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/messung3_daempf.pdf}
+  \caption{Plot der Theoriewerte und Messwerte mit Fitfunktion.}
+  \label{fig:daempfbild}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Die SWR Methoden}
+\subsubsection{Die direkte Methode}
+Bei der direkten Methode wurden, gemäß\, der Anleitung, direkt das SWR
+gemessen. Die aufgenommen Messwerte sind in Tabelle \ref{tab:swr_direkt}
+zusehen, mit dem dazugehörigen Plot in Abbildung \ref{fig:swr_direkt_plot}.
+Die Messwerte wurden mit dem SWR-Meter direkt aufgenommen.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/messung4_direkt.pdf}
+  \caption{Messwerte der direkten Methode.}
+  \label{fig:swr_direkt_plot}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der direkten Methode.}
+  \label{tab:swr_direkt}
+  \sisetup{table-format=1.2}
+  \begin{tabular}{S[table-format=1.1]SS}
+  \toprule
+    {Stifttiefe\;/\;$\si{\milli\metre}$} & \text{SWR} & {Korrekturdaten}\\
+  \midrule
+  0   & 1.35 & 1.0  \\
+  1.5 & 1.35 &      \\
+  3   & 1.32 & 1.02 \\
+  5   & 1.22 & 1.22 \\
+  7   & 1.05 & 2.4  \\
+  9   &      & 5.0  \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Die 3-dB-Methode}
+Hier wurde die 3dB Methode nach der Anleitung verwendet.
+Aufgenommen wurden die Stellen, an denen die Leistung doppelt so groß\, ist wie
+im Minimum. Mit Formel \eqref{eqn:3dBM} wird das SWR berechnet zu
+\begin{align}
+  \text{SWR}_{3dB, \lambda1} &= \num{8.40(15)} \\
+  \text{SWR}_{3dB, \lambda3} &= \num{8.29(18)}\,.
+\end{align}
+
+\subsubsection{Die Abschwächer Methode}
+Bei der Abschwächer Methode wurde am Maximum eine Abschwächung von
+$\SI{46}{\decibel}$ und am Minimum eine Abschwächung von
+$\SI{16}{\decibel}$ eingestellt um zu erreichen, dass die Leistungen
+übereinstimmen.
+Mit Formel \eqref{eqn:abschw} folgt ein SWR von
+\begin{equation}
+  \text{SWR} = \num{31.623}\,.
+\end{equation} \\
+\textbf{Korrektur:}
+\begin{align}
+  A_1 &= \SI{20}{\deci\bel} \\
+  A_2 &= \SI{37}{\deci\bel} \\
+  \text{SWR} &= \num{7.08}
+\end{align}

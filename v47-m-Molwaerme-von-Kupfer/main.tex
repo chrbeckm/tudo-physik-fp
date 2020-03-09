@@ -1,0 +1,26 @@
+\input{../header.tex}
+\usepackage{pgfplotstable}
+\subject{V47}
+\title{Temperaturabhängigkeit der \\ Molwärme von Festkörpern}
+\date{%
+  Durchführung: 02.12.2019
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\input{content/theorie.tex}
+\newpage
+\input{content/durchfuehrung.tex}
+\newpage
+\input{content/auswertung.tex}
+\input{content/diskussion.tex}
+\printbibliography{}
+%\newpage
+\input{content/tabellen.tex}
+\newpage
+\includepdf[pages=-]{data/messwerte-v47.PDF}
+\end{document}

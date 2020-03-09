@@ -1,0 +1,147 @@
+\section{Motivation}
+\label{sec:motivation}
+Das Ziel dieses Versuches ist die Bestimmung der effektiven Masse von
+Elektronen in Halbleitern.
+In diesem Fall sind die Halbleiter n-dotierte GaAs Kristalle.
+Für diese Bestimmung wird der \textsc{Faraday}-Effekt genutzt.
+
+\section{Theoretische Grundlagen}
+\label{sec:theorie}
+\subsection{Dotierung von Halbleitern}
+In einem GaAs Halbleiter sind die je drei Valenzelektronen der Gallium
+und je fünf der Arsenatome in den Bindungen zwischen den Atomen.
+
+Die Dotierung des Halbleiters kann mit zwei Methoden passieren.
+In der einen wird der Halbleiter erwärmt und in das Gas des Fremdatoms gesetzt,
+dann können diese in den Kristall diffundieren.
+Die zweite Methode beruht auf dem Einschuss der Fremdatome.
+Die Dotierung beträgt meist zwischen $10^{-4}$ und $10^{-8}$ \cite{demtroeder}.
+
+Wenn mit einem Atom aus der fünften Hauptgruppe dotiert wird,
+ist ein Elektron nicht gebunden, aufgrund der geringen Anzahl an Fremdatomen
+kann dieses als einzelnes \enquote{freies} Elektron gesehen werden.
+
+Die zusätzliche positive Ladung des Atomrumpfes wird größtenteils von den
+Elektronen in den Bindungen kompensiert, sodass die Coulombkraft nicht mehr
+komplett auf das Elektron wirkt.
+
+\subsection{Effektive Masse von Elektronen in Halbleiterstrukturen}
+Wie in Abschnitt \ref{sec:1.4} zu sehen ist,
+wird im Kristall ein äußeres elektrisches Feld angelegt.
+Durch die Kristallstruktur wirkt auf das Elektron auch ein ortsabhängiges Potential.
+Damit trotzdem wichtige Formeln weiterhin ohne Korrekturen gelten,
+wie z.\,B. das ohmsche Gesetz
+\begin{align*}
+  \vec{j} &= \sigma \vec{E}\,,
+  \intertext{wird eine effektive Masse $m^\ast$  für die Elektronen definiert.
+    Die Herleitung \cite{demtroeder} startet bei der Gruppengeschwindigkeit}
+  v_g &= \frac{1}{\hbar}\frac{\dif{E}}{\dif{k}}
+  \shortintertext{und kann mit der zeitlichen Ableitung und}
+  F &= m^\ast \cdot a = \hbar \frac{\dif{k}}{\dif{t}}
+  \shortintertext{umgeformt werden zu}
+  m^\ast &= \hbar^2 \cdot \left(\frac{\dif{^2E}}{\dif{k_i}\dif{k_j}}\right)^{-1}\,.
+\end{align*}
+Allgemein ist diese Größe richtungsabhängig, im vorliegenden Material GaAs
+aufgrund der Symmetrie des Kristalls nicht.
+
+\subsection{Doppelbrechende Kristalle}
+Fällt ein zirkular polarisierter Lichtstrahl auf einen doppelbrechenden
+Kristall, kommen zwei orthogonal linearpolarisierte Strahlen auf der anderen
+Seite heraus.
+Dies liegt an den unterschiedlichen Brechungsindizes für die beiden
+Polarisationsrichtungen.
+
+Einige Kristalle sind immer doppelbrechend.
+Andere können mit einem Magnetfeld angeregt werden.
+
+\subsection{\textsc{Faraday}-Effekt}
+\label{sec:1.4}
+Die durch die Probe, den Halbleiter, gehenden Lichtstrahlen können als
+zirkular polarisierte elektrische Felder aufgefasst werden.
+Diese Felder üben die Kraft
+\begin{equation*}
+  \vec{F}_E = - \me_0 \cdot \vec{E}
+\end{equation*}
+auf die Elektronen aus.
+Da bewegte elektrische Ladungen Magnetfelder induzieren,
+wird das außen angelegte Magnetfeld entsprechend beeinflußt.
+Damit das induzierte Magnetfeld mit dem angelegten Magnetfeld zusammen
+die Doppelbrechung hervorruft, müssen Magnetfeld und einfallender Lichtstrahl parallel liegen.
+
+Das Magnetfeld, insgesamt, kann dafür verwendet werden, die Polarisationsebenen
+zu drehen, um den Winkel
+\begin{equation*}
+  α = V \cdot B \cdot l\,,
+\end{equation*}
+wobei $B$ das Magnetfeld, $l$ die Länge des Kristalls und $V$ die
+materialspezifische \enquote{Verdet-Konstante} ist, welche nicht konstant,
+sondern von unter anderem der Wellenlänge abhängig ist \cite{heintze}.
+
+\subsection{\textsc{Faraday}-Rotation}
+Die mathematische Beschreibung des Problems startet mit einer Welle die sich
+in $z$-Richtung ausbreitet
+\begin{align*}
+  E\l(z\r) &= \frac{1}{2} \left(E_R\l(z\r) + E_L\l(z\r)\right)\,,
+  \intertext{wobei $E_R$ und $E_L$ rechts- und linkszirkular polarisierte Wellen sind}
+  E_R\l(z\r) &= \left(E_0 \vec{x}_0 - \I E_0 \vec{y}_0\right) \me^{\I k_R z} \\
+  E_L\l(z\r) &= \left(E_0 \vec{x}_0 + \I E_0 \vec{y}_0\right) \me^{\I k_L z}\,.
+\end{align*}
+Nach dem Einsetzen dieser Wellenfunktionen und Betrachtung des Systems
+am Ende des Kristalls der Länge $L$ können die Abkürzungen
+\begin{align}
+  ψ &:= \frac{L}{2} \l(k_R + k_L\l) \\
+  θ &:= \frac{L}{2} \l(k_R - k_L\l) \label{eqn:theorietheta}
+\end{align}
+eingeführt werden und es folgt
+\begin{equation*}
+  E\l(L\r) = E_0 \me^{i ψ} \left(\cos\l(θ\vec{x}_0\r) + \I \sin\l(υ\vec{y}_0\r)\right)\,.
+\end{equation*}
+Dies beschreibt eine Welle, die um $θ$ zur Einfallsebene gedreht ist.
+Mit den Beziehungen
+\begin{align*}
+  v_{\text{ph}} &= \frac{ω}{k} \\
+  n &= \frac{\symup{c}}{v_{\text{ph}}}
+\end{align*}
+zwischen Phasengeschwindigkeit und Brechungsindex wird Gleichung \eqref{eqn:theorietheta}
+\begin{equation*}
+  θ = \frac{L ω}{2 \symup{c}} \l(n_R - n_L\r)\,.
+\end{equation*}
+Die Abhängigkeit des Winkels von den Brechungsindizes ist klar zu sehen.
+
+\subsection{Betrachtung eines Elektrons}
+Startet man bei der Bewegungsgleichung
+\begin{equation*}
+  m \frac{\partial^2 \vec{r}}{\partial t^2} + K \vec{r} =
+  - \me_0 \vec{E}\l(\vec{r}\r) - \me_0 \frac{\ud\vec{r}}{\ud t} \times \vec{B}
+\end{equation*}
+kann mittels des Polarisationsvektors $\vec{P}$ und der dielektrischen
+Suszeptibilität $χ$ die Gleichung \eqref{eqn:theorietheta}
+erweitert werden zu
+\begin{equation*}
+  θ  = \frac{\me_0^3}{2 ε_0 \symup{c}} \frac{ω^2}{\l(-mω^2+K\r)^2 - \l(\me_0ωB\r)^2}
+    \frac{N B L}{n}\,.
+\end{equation*}
+Hierbei bezeichnet $ω$ die Frequenz des Feldes, $K$ eine Bindungskonstante im
+Festkörper und $N$ die Zahl der Elektronen pro Volumeneinheit \cite{anleitung}.
+
+Bei der weiteren Vereinfachung des Terms werden die Frequenzen betrachtet.
+Wenn die Frequenz mit der gemessen wird, nicht zu nah an der Zyklotron-Frequenz
+\begin{align*}
+  ω_c &= \frac{B \me_0}{m}
+  \intertext{liegt, gilt}
+  \l(ω_0^2 - ω^2\r)^2 ≫ ω^2ω_c^2\,.
+\end{align*}
+Bei $ω ≪ ω_0: \l(ω_0^2 - ω^2\r)^2 = ω_0^4$.
+Mit der Wellenlänge $λ$ kommt man zu der Gleichung
+\begin{equation*}
+  θ\l(λ\r) = \frac{2 \mpi^2 \me_0^3 \symup{c}}{ε_0 m^2} \frac{1}{λ^2 ω_0^4}
+    \frac{N B L}{n}\,.
+\end{equation*}
+Mit dem Grenzwert $ω_0 \to 0$ kann man freie Ladungsträger betrachten.
+Für Kristallelektronen gilt dies, unter bestimmten Voraussetzungen \cite{anleitung},
+bei der Ersetzung von $m$ mit der effektiven Masse $m^\ast$.
+Es folgt
+\begin{equation}
+  θ_{\text{frei}} = \frac{\me_0^3}{8 \mpi^2 ε_0 \symup{c}^3} \frac{λ^2}{\l(m^\ast\r)^2}
+    \frac{N B L}{n}\,. \label{eqn:thetafrei}
+\end{equation}

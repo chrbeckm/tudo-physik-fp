@@ -1,0 +1,23 @@
+Gitter 1
+100 lines/mm
+Abstand Gitter-Schirm: 134cm
+Maxima:
+0-1:  8.5cm
+0-1:  8.5cm
+0-2: 17.2cm
+0-2: 17.1cm
+0-3: 25.9cm
+0-3: 25.9cm
+
+Gitter 2
+80 lines/mm
+Abstand Gitter-Schirm: 134cm
+Maxima:
+0-1:  6.8cm
+0-1:  6.7cm
+0-2: 13.5cm
+0-2: 13.5cm
+0-3: 20.3cm
+0-3: 20.4cm
+0-4: 27.3cm
+0-4: 27.5cm
